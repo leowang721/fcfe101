@@ -1,0 +1,49 @@
+/**
+ * FCUI Table 皮肤，排序的部分
+ * @author Han Bing Feng (hanbingfeng@baidu.com)
+ */
+
+// 表头排序浮层内图标样式
+.set-layer-sort-icon(@icon) {
+    &:before {
+        vartical-align: -2px;
+        color: @skin-fc-text-color-gray-light;
+        #skin-fc-mixin > .use-font-icon(@icon);
+    }
+}
+
+.ui-fctable-sort-layer.ui-tiplayer {
+    padding: 5px 0;
+    .ui-tiplayer-body-panel {
+        .ui-tiplayer-body {
+            .ui-fctable-sort-item-wrapper {
+                .ui-fctable-sort-item {
+                    cursor: pointer;
+                    display: block;
+                    line-height: 26px;
+                    padding: 0 5px;
+                    &:hover {
+                        background: @skin-fc-bg-color-hover-blue;
+                        text-decoration: none;                
+                    }
+
+                    &-selected {
+                        background: @skin-fc-bg-color-selected;
+                    }
+
+                    .ui-fctable-sort-icon-asc {
+                        .set-layer-sort-icon(@font-icon-arrow-up)
+                    }
+
+                    .ui-fctable-sort-icon-desc {
+                        .set-layer-sort-icon(@font-icon-arrow-down)
+                    }
+                }
+
+                &-with-border {
+                    border-bottom: 1px solid @skin-fc-text-color-gray-light;
+                }                
+            }
+        }
+    }
+}

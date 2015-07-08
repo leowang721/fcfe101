@@ -1,0 +1,15 @@
+{
+    "--title": "fc-storage",
+    "--output": "../doc/api",
+    "--categories": "categories.json",
+    "--": [
+        "../src/cookie.js",
+        "../src/localStorage.js",
+        "../src/main.js",
+        "../src/memory.js",
+        "../src/sessionStorage.js",
+        "../src/util.js",
+        "./meta/EventTarget.js",
+        "./meta/Promise.js"
+    ]
+}

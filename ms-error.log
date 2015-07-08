@@ -1,0 +1,12 @@
+vega_GET_mtl_planlist
+TypeError: Cannot read property 'length' of undefined
+    at module.exports (/Users/leowang/work/git/fcfe101/debug/response/material/vega_GET_mtl_planlist.js:31:47)
+    at Object.exports.getResult (/Users/leowang/work/git/fcfe101/node_modules/mockservice/src/core.js:186:22)
+    at Object.exports.serve (/Users/leowang/work/git/fcfe101/node_modules/mockservice/src/core.js:238:26)
+    at Array.0 (/Users/leowang/work/git/fcfe101/node_modules/mockservice/src/edp-extension.js:16:12)
+    at nextHandler (/usr/local/lib/node_modules/edp-webserver/lib/handler.js:68:34)
+    at process (/usr/local/lib/node_modules/edp-webserver/lib/handler.js:59:5)
+    at Object.handle (/usr/local/lib/node_modules/edp-webserver/lib/handler.js:19:9)
+    at next (/usr/local/lib/node_modules/edp-webserver/node_modules/connect/lib/proto.js:169:15)
+    at Route.process (/usr/local/lib/node_modules/edp-webserver/lib/route.js:138:5)
+    at Object.handle (/usr/local/lib/node_modules/edp-webserver/lib/route.js:16:15)

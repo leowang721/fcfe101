@@ -1,0 +1,64 @@
+fc-navigator {
+    .logo {
+        text-align: center;
+        img {
+            width: 200px;
+        }
+    }
+    a {
+        background-color: #376da5;
+        display: block;
+        text-align: center;
+        font-size: 15px;
+        color: #8fadc6;
+        padding: 8px 10px;
+        text-decoration: none;
+        margin-bottom: 5px;
+
+        &:link, &:visited {
+            color: #8fadc6;
+        }
+        &:hover, &:active {
+            color: #ffffff;
+            animation: navigator-active 0.5s;
+            -moz-animation: navigator-active 0.5s; /* Firefox */
+            -webkit-animation: navigator-active 0.5s; /* Safari and Chrome */
+            -o-animation: navigator-active 0.5s; /* Opera */
+        }
+        &.actived {
+            color: #ffffff;
+        }
+    }
+}
+
+@keyframes navigator-active
+{
+    0%   { padding-left: 8px; }
+    33%  { padding-left: 18px; }
+    66%  { padding-left: 0; }
+    100% { padding-left: 8px; }
+}
+
+@-moz-keyframes navigator-active /* Firefox */
+{
+    0%   { padding-left: 8px; }
+    33%  { padding-left: 18px; }
+    66%  { padding-left: 23px; }
+    100% { padding-left: 8px; }
+}
+
+@-webkit-keyframes navigator-active /* Safari 和 Chrome */
+{
+    0%   { padding-left: 8px; }
+    33%  { padding-left: 18px; }
+    66%  { padding-left: 23px; }
+    100% { padding-left: 8px; }
+}
+
+@-o-keyframes navigator-active /* Opera */
+{
+    0%   { padding-left: 8px; }
+    33%  { padding-left: 18px; }
+    66%  { padding-left: 23px; }
+    100% { padding-left: 8px; }
+}

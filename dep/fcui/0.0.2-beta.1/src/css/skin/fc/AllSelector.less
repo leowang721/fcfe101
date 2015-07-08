@@ -1,0 +1,59 @@
+/* Select layer */
+.ui-allselector-layer:extend(.ui-select-layer) {}
+.skin-ui-fc-allselector-layer:extend(.skin-ui-fc-select-layer) {}
+
+.ui-allselector-layer-hidden:extend(.ui-select-layer-hidden) {}
+.skin-ui-fc-allselector-layer-hidden:extend(.skin-ui-fc-select-layer-hidden) {}
+
+.ui-allselector-item:extend(.ui-select-item) {}
+.skin-ui-fc-allselector-item:extend(.skin-ui-fc-select-item) {}
+
+.ui-allselector-item span:extend(.ui-select-item span) {}
+
+.ui-allselector-item-selected:extend(.ui-select-item-selected) {}
+.skin-ui-fc-allselector-item-selected:extend(.skin-ui-fc-select-item-selected) {}
+
+/* Select */
+.ui-allselector:extend(.ui-select) {}
+.skin-ui-fc-allselector:extend(.skin-ui-fc-select) {}
+
+.ui-allselector:hover:extend(.ui-select:hover) {}
+.ui-allselector:active:extend(.ui-select:active) {}
+
+.ui-allselector-active:extend(.ui-select-active) {}
+.ui-allselector-active:hover:extend(.ui-select-active:hover) {}
+.ui-allselector-active:focus:extend(.ui-select-active:focus) {}
+
+
+.ui-allselector-text:extend(.ui-select-text) {}
+.skin-ui-fc-allselector-text:extend(.skin-ui-fc-select-text) {}
+
+.skin-ui-fc-allselector-tip {
+    padding: 5px;
+    background: #fff6bd;
+    border: 1px solid #d5ca81;
+    position: absolute;
+    z-index: 9999;
+}
+
+.ui-allselector-item:hover:extend(.ui-select-item:hover) {}
+
+.ui-allselector-text {
+    display: none;
+}
+
+.ui-allselector-checkbox {
+    width: 16px;
+    height: 16px;
+}
+
+.skin-ui-fc-allselector-layer {
+    &-hidden {
+        display: none;
+    }
+    .skin-ui-fc-allselector-item {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

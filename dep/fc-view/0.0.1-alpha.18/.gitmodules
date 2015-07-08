@@ -1,0 +1,6 @@
+[submodule "dep/er"]
+	path = dep/er
+	url = https://github.com/ecomfe/er.git
+[submodule "dep/emc"]
+	path = dep/emc
+	url = https://github.com/ecomfe/emc.git

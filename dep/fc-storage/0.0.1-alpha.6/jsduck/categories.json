@@ -1,0 +1,31 @@
+[
+    {
+        "name": "fc-storage",
+        "groups": [
+            {
+                "name": "核心组件",
+                "classes": [
+                    "fc.storage",
+                    "fc.storage.storageUtil",
+                    "fc.storage.localStorage",
+                    "fc.storage.sessionStorage",
+                    "fc.storage.MemoryStorage",
+                    "fc.storage.memory",
+                    "fc.storage.cookie"
+                ]
+            },
+            {
+                "name": "工具组件",
+                "classes": [
+                    "fc.storage.util"
+                ]
+            },
+            {
+                "name": "内部数据结构",
+                "classes": [
+                    "meta.*"
+                ]
+            }
+        ]
+    }
+]

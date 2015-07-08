@@ -1,0 +1,14 @@
+[
+    {
+        "title": "fc-ajax Demo",
+        "items": [
+            {
+                "name": "fc-ajax",
+                "title": "fc-ajax demo",
+                "description": "fc-ajax 快速开始",
+                "icon": "http://docs.sencha.com/extjs/4.1.3/extjs-build/examples/shared/screens/feeds.gif",
+                "url": "../demo/index.html"
+            }
+        ]
+    }
+]

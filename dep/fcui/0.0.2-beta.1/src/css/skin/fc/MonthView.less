@@ -1,0 +1,184 @@
+/**
+ * @file ESUI.MonthView 凤巢定制版皮肤
+ * @author Wang Yi(wangyi25@baidu.com)
+ * @date Thu Jul 03 2014
+ */
+
+@monthview-year-select-width: 32px;
+@monthview-month-select-width: 18px;
+@monthview-icon-size: 8px;
+@monthview-item-width: 30px;
+@monthview-item-height: 30px;
+
+.set-month-adjust-icon(@color, @content, @size: @monthview-icon-size) {
+    #skin-fc-mixin > .use-font-icon(@content);
+    visibility: visible;
+    width: auto;
+    color: @color;
+    font-size: @size;
+}
+
+.set-month-item(@width, @height, @background, @color) {
+    width: @width;
+    height: @height;
+    line-height: @height;
+    background: @background;
+    color: @color;
+    font-size: 12px;
+    text-align: center;
+}
+
+.set-month-button() {
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    background-color: @skin-fc-bg-color-white;
+
+    &:before {
+        position: relative;
+        top: 3px;
+        font-size: 16px;
+    }
+}
+
+.set-month-select(@width) {
+    width: @width;
+    height: 16px;
+    line-height: 16px;
+    padding: 3px 26px 3px 10px;
+    background-color: @skin-fc-bg-color-white;
+    text-align: center;
+
+    &:before {
+        right: 6px;
+        color: @skin-fc-icon-color-gray-dark;
+        font-size: @monthview-icon-size;
+    }
+
+    &:after,
+    &-active:hover:after,
+    &-active:active:after {
+        top: 3px;
+    }
+}
+
+.@{skin-fc-prefix}-monthview {
+    &-head {
+        height: 26px;
+        background: @skin-fc-bg-color-gray-dark;
+
+        td {
+            &:nth-child(1) {
+                width: 26px;
+            }
+
+            &:nth-child(2) {
+                width: 70px;
+
+                .@{skin-fc-prefix}-select {
+                    .set-month-select(@monthview-year-select-width) !important;
+                }
+            }
+
+            &:nth-child(3) {
+                width: 56px;
+
+                .@{skin-fc-prefix}-select {
+                    .set-month-select(@monthview-month-select-width) !important;
+                }
+            }
+
+            &:nth-child(4) {
+                width: 23px;
+            }
+
+            &:nth-child(1),
+            &:nth-child(4) {
+                .@{skin-fc-prefix}-button {
+                    .set-month-button() !important;
+                }
+            }
+
+            .@{skin-fc-prefix}-monthview-month-back,
+            .@{skin-fc-prefix}-monthview-month-forward {
+                background-image: none;
+            }
+
+            .@{skin-fc-prefix}-monthview-month-forward {
+                margin-left: 0;
+            }
+        }
+    }
+
+    &-month-back {
+        &:before {
+            .set-month-adjust-icon(
+                @skin-fc-icon-color-gray-dark,
+                @font-icon-caret-left
+            );
+        }
+    }
+
+    &-month-forward {
+        margin-left: 0;
+
+        &:before {
+            .set-month-adjust-icon(
+                @skin-fc-icon-color-gray-dark,
+                @font-icon-caret-right
+            );
+        }
+    }
+
+    &-month {
+        border: none;
+
+        table {
+            border-collapse: separate;
+        }
+
+        &-title {
+            .set-month-item(
+                @monthview-item-width,
+                @monthview-item-height,
+                @skin-fc-bg-color-gray-light,
+                @skin-fc-text-color-gray
+            );
+        }
+
+        &-item {
+            .set-month-item(
+                @monthview-item-width,
+                @monthview-item-height,
+                @skin-fc-bg-color-white,
+                @skin-fc-text-color-gray-dark
+            );
+            border: none;
+            cursor: pointer;
+
+            &:hover {
+                background: @skin-fc-bg-color-hover-blue;
+            }
+
+            &-virtual,
+            &-disabled {
+                color: @skin-fc-text-color-disabled;
+                cursor: default;
+
+                &:hover {
+                    background: @skin-fc-bg-color-white;
+                }
+            }
+
+            &-selected {
+                border: 1px solid @skin-fc-text-color-blue;
+                background: @skin-fc-bg-color-white;
+                color: @skin-fc-text-color-blue;
+
+                .@{skin-fc-prefix}-monthview-last-row & {
+                    border-bottom: 1px solid @skin-fc-text-color-blue;
+                }
+            }
+        }
+    }
+}

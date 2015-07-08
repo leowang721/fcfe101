@@ -1,0 +1,18 @@
+<fc-component name="ao-package-entry" action="ao/package/Entry">
+    <template>
+        <!-- import: ao-package-entry -->
+    </template>
+</fc-component>
+
+<!-- target: ao-package-entry -->
+<div class="ao-package-entry">
+    <div data-ui="type:FcTab;id:ao-package-entry-navigator">
+        <ul data-role="navigator">
+            <li data-for="corewords">看排名</li>
+            <li data-for="mobile">移动优化</li>
+        </ul>
+    </div>
+    <section id="ao-package-detail">
+        <ao-package-${ao-package.currentPanel}-entry />
+    </section>
+</div>

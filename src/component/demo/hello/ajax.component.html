@@ -1,0 +1,28 @@
+<fc-component name="demo-hello-ajax" action="component/demo/hello/Ajax">
+    <template>
+        <!-- import: demo-hello-ajax -->
+    </template>
+</fc-component>
+
+<!-- target: demo-hello-ajax -->
+<div class="demo-hello-ajax">
+    <h3>一个通过 ajax 请求展现出来的列表</h3>
+    <div class="fake-list">
+    <!-- block: list -->
+        <!-- if: ${fakeList.length} > 0 -->
+            <ul>
+            <!-- for: ${fakeList} as ${item} -->
+                <li>${item.planname}</li>
+            <!-- /for -->
+            </ul>
+        <!-- else: -->
+            数据为空
+        <!-- /if -->
+    <!-- /block -->
+    </div>
+</div>
+
+<!-- target: demo-hello-ajax-loading(master = demo-hello-ajax) -->
+<!-- block: list -->
+${loading|raw}
+<!-- /block -->

@@ -1,0 +1,176 @@
+/**
+ * @file ESUI.TextBox凤巢定制版皮肤
+ * @author Feixiang Yuan(yuanfeixiang@baidu.com)
+ * @date 2014-08-20
+ */
+
+/**
+ * ESUI (Enterprise Simple UI)
+ * Copyright 2013 Baidu Inc. All rights reserved.
+ * 
+ * @file 单行、文本框样式
+ * @author erik, zhaolei
+ */
+@import "../../esui/mixin.less";
+@import "../../esui/variable.less";
+
+@padding-vertical: 2px;
+@padding-horizon: 4px;
+@border-width: 1px;
+
+.@{ui-class-prefix}-fctextbox {
+    position: relative;
+    display: inline-block;
+    *display: inline;
+
+    input, textarea {
+        color: #333;
+        padding: @padding-vertical @padding-horizon;
+        font-size: 13px;
+        background: #FFF;
+        border: @border-width solid #a8adb6;
+        height: 19px;
+        line-height: 19px;
+        width: 200px;
+        .box-sizing(content-box);
+        background-image: -webkit-gradient(linear, 0 0, 0 2, from(#ececec), to(#fff));
+        background-image: -moz-linear-gradient(top, #ececec, #fff 2px, #fff);
+        &:focus {
+            outline: 0;
+        }
+        &:hover {
+            border: 1px solid #6e8ab8;
+        }
+    }
+    textarea {
+        height: 200px;
+        overflow: auto;
+        resize: none;
+    }
+}
+
+// 要跟hint保持一致
+.@{ui-class-prefix}-fctextbox-hint-suffix input {
+    vertical-align: middle;
+}
+.@{ui-class-prefix}-fctextbox-hint {
+    .inline-block ();
+    .box-sizing (content-box);
+    background-color: #f2f2f2;
+    padding: @padding-vertical 12px;
+    border: 1px solid #a8adb6;
+    vertical-align: middle;
+    height: 19px;
+    line-height: 19px;
+}
+
+.@{ui-class-prefix}-fctextbox-placeholder {
+    color: #999;
+    position: absolute;
+    height: 19px;
+    line-height: 19px;
+    left: 3px;
+    top: @padding-vertical + @border-width;
+}
+
+.@{ui-class-prefix}-fctextbox-placeholder-hidden {
+    display: none;
+}
+
+.@{ui-class-prefix}-fctextbox-hint-suffix {
+    .@{ui-class-prefix}-fctextbox-hint {
+        border-left: 0;
+    }
+}
+
+.@{ui-class-prefix}-fctextbox-hint-prefix {
+    .@{ui-class-prefix}-fctextbox-hint {
+        border-right: 0;
+    }
+}
+
+.@{ui-class-prefix}-fctextbox-disabled,
+.@{ui-class-prefix}-fctextbox-read-only {
+    input, textarea {
+        border: 1px solid #7E9DB9;
+        background: #f6f6f6;
+        color: #999;
+    }
+}
+
+
+/** 验证 */
+.@{ui-class-prefix}-fctextbox-validity-label,
+.@{ui-class-prefix}-fctextarea-validity-label {
+    display:inline-block;
+    *display:inline;
+    zoom:1;
+    color: #CC0000;
+    padding-left: 10px;
+}
+
+.@{ui-class-prefix}-fctextbox-validity-label-notice,
+.@{ui-class-prefix}-fctextarea-validity-label-notice {
+    color: #FF0000;
+}
+
+.@{ui-class-prefix}-fctextbox-validity-label-warn,
+.@{ui-class-prefix}-fctextarea-validity-label-warn {
+    color: red;
+}
+
+.@{ui-class-prefix}-fctextbox-validity-label-invalid,
+.@{ui-class-prefix}-fctextarea-validity-label-invalid {
+    color: #CC0000;
+}
+
+.@{ui-class-prefix}-fctextbox-validity-invalid input,
+.@{ui-class-prefix}-fctextbox-validity-invalid textarea {
+    border: 1px solid red;
+}
+
+.@{skin-fc-prefix} {
+
+    &-fctextbox {
+        input {
+            border: 1px solid @skin-fc-shadow-color;
+            background: none;
+            background-color: @skin-fc-bg-color-white;
+            padding: 4px 10px;
+            height: 20px;
+            line-height: 20px;
+            color: @skin-fc-text-color-gray-dark;
+            #skin-fc-mixin > .border-radius(2px);
+            &:hover {
+                border: 1px solid @skin-fc-text-color-blue;
+                #skin-fc-mixin > .box-shadow(0px 1px 3px @skin-fc-shadow-color);
+            }
+            &.textbox-input-ie9 {
+                padding: 4px 3px;
+            }
+        }
+        
+        // 兼容IE9的placeholder位置问题
+        &-placeholder {
+            color: #999;
+            position: absolute;
+            height: auto;
+            line-height: 1em;
+            top: 11px;
+        }
+    }
+
+    /** 验证 */
+    &-fctextbox-validity-label,
+    &-fctextarea-validity-label {
+      padding-left: 6px;
+    }
+    &-fctextbox-validity-label-invalid,
+    &-fctextarea-validity-label-invalid {
+        color: @skin-fc-invalid-color;
+    }
+    &-fctextbox-validity-invalid input,
+    &-fctextbox-validity-invalid textarea {
+        border: 1px solid @skin-fc-invalid-border-color;
+    }
+}

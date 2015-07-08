@@ -1,0 +1,99 @@
+
+.code-steps {
+    li {
+        margin-left: 2em;
+        margin-bottom: 1em;
+        list-style-type: decimal;
+        line-height: 1.4em;
+
+        code {
+            background-color: #262626;
+            color: #ffffff;
+            display: inline-block;
+            line-height: 18px;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        code.console {
+            background: url(../../resource/image/console.png) 0 0 no-repeat;
+            background-color: #262626;
+            color: #ffffff;
+            display: inline-block;
+            line-height: 18px;
+            padding-left: 30px;
+            padding-right: 5px;
+        }
+    }
+}
+
+.code-preview {
+    border: 1px dashed #3a3a3a;
+    padding: 5px 8px;
+}
+.code-structure {
+    // border: 1px dashed #3a3a3a;
+    width: 300px;
+    // display: inline-block;
+    position: absolute;
+    min-height: 400px;
+
+    h3 {
+        background-color: #ccdbe8;
+        font-size: 13px;
+        font-weight: 700;
+        padding: 5px 5px;
+        border-left: 4px solid #ffffff;
+        border-bottom: 1px solid #ffffff;
+        text-align: center;
+    }
+
+    .code-structure-detail,
+    .code-structure-usage {
+        background-color: #efefef;
+        margin-bottom: 20px;
+    }
+}
+
+.code-review {
+    margin-left: 310px;
+    border: 1px solid #333333;
+    height: 462px;
+}
+
+.focus {
+    animation:focus 0.7s;
+    -moz-animation:focus 0.7s; /* Firefox */
+    -webkit-animation:focus 0.7s; /* Safari and Chrome */
+    -o-animation:focus 0.7s; /* Opera */
+}
+
+
+@keyframes focus
+{
+    0%   { background: yellow; }
+    50%  { background: inherit; }
+    100% { background: yellow; }
+}
+
+@-moz-keyframes focus /* Firefox */
+{
+    0%   { background: yellow; }
+    50%  { background: inherit; }
+    100% { background: yellow; }
+}
+
+@-webkit-keyframes focus /* Safari 和 Chrome */
+{
+    0%   { background: yellow; }
+    50%  { background: inherit; }
+    100% { background: yellow; }
+}
+
+@-o-keyframes focus /* Opera */
+{
+    0%   { background: yellow; }
+    50%  { background: inherit; }
+    100% { background: yellow; }
+}
+

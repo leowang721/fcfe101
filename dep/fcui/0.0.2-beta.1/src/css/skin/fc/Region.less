@@ -1,0 +1,167 @@
+/**
+ * @file ESUI.Region，SingleRegion 凤巢定制版皮肤
+ * @author Han Bing Feng (hanbingfeng@baidu.com)
+ */
+
+/**
+ * ESUI Region的DOM结构
+ * .skin-ui-fc-region
+ * > .skin-ui-fc-region-country-box
+ *   > .skin-ui-fc-region-country-check
+ *     > input
+ *     > label
+ *   > .skin-ui-fc-region-region-box0
+ *   > .skin-ui-fc-region-region-box1
+ *     > .skin-ui-fc-region-region-check
+ *       > input
+ *       > label
+ *     > .skin-ui-fc-region-province-box
+ *       > .skin-ui-fc-region-province-item
+ *         > .skin-ui-fc-region-locator
+ *           > .skin-ui-fc-region-city-box
+ *             > table
+ *               > .skin-ui-fc-region-city
+ *                 input
+ *                 label
+ *           b
+ *         > .skin-ui-fc-region-text
+ *         > .skin-ui-fc-region-text-over
+ *           > input
+ *           > label
+ */
+
+// 设定浮层的圆角，阴影和边框
+.set-region-layer() {
+    #skin-fc-mixin > .border-radius(2px);
+    #skin-fc-mixin > .box-shadow(0 1px 3px @skin-fc-text-color-gray-light);
+    border: 1px solid @skin-fc-text-color-gray-light;
+}
+
+// 设定line-height和height
+.set-height() {
+    height: 30px;
+    line-height: 30px;
+}
+
+// 设定所有的region-box
+.set-region-box() {
+    #skin-fc-mixin > .clearfix();
+    width: auto;
+
+    background: @skin-fc-bg-color-white;
+    padding: 0 10px;
+    border: none;
+
+    .@{skin-fc-prefix}-region-region-check {
+        .set-height();
+        padding: 0;
+
+        width: 120px;
+    }
+
+    .@{skin-fc-prefix}-region-province-box {
+        // 460px == 5个省份+padding
+        width: 460px;
+
+        .@{skin-fc-prefix}-region-province-item {
+            position: relative;
+
+            width: 80px;
+            padding-right: 10px;
+
+            .@{skin-fc-prefix}-region-text {
+                .set-height();
+
+                padding: 0 0 0 10px;
+                width: auto;
+                float: none;
+            }
+
+            .@{skin-fc-prefix}-region-text-over {
+                border: 1px solid @skin-fc-text-color-gray-light;
+            }
+
+            .@{skin-fc-prefix}-region-locator {
+                position: absolute;
+                top: 30px;
+                left: 0;
+                float: none;
+
+                b {
+                    display: none;
+                }
+
+                .@{skin-fc-prefix}-region-city-box {
+                    .set-region-layer();
+
+                    background: @skin-fc-bg-color-gray;
+                    margin: 0;
+                    padding: 5px 10px 5px 0;
+
+                    table {
+                        td {
+                            padding-left: 10px;
+
+                            .@{skin-fc-prefix}-region-city {
+                                padding: 0;
+                                line-height: 24px;
+                                height: 24px;
+
+                                label {
+                                    padding-left: 10px;
+                                }
+                            }                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.@{skin-fc-prefix}-region {
+    .set-region-layer();
+
+    background: @skin-fc-bg-color-white;
+    padding: 10px;
+    width: auto;
+    min-width: 600px;
+
+    input {
+        float: none;
+    }
+
+    .@{skin-fc-prefix}-region-country-box {
+        border: none;
+        overflow: visible;
+
+        .@{skin-fc-prefix}-region-country-check {
+            .set-height();
+
+            width: auto;
+            padding: 0 10px;
+            background: @skin-fc-bg-color-gray;
+        }
+    }
+
+    .@{skin-fc-prefix}-region-region-box0
+    , .@{skin-fc-prefix}-region-region-box1
+    {
+        .set-region-box();
+    }
+    
+    /** 验证 */
+    &-validity-invalid {
+        border: 1px solid @skin-fc-invalid-border-color;
+    }
+    &-validity-label-invalid {
+        background: none;
+        border: none;
+        color: @skin-fc-invalid-color;
+    }
+}
+
+/* 验证 */
+.skin-ui-fc-region-validity-label {
+    color: @skin-fc-invalid-color;
+}

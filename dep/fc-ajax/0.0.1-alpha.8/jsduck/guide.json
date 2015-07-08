@@ -1,0 +1,13 @@
+[
+    {
+        "title": "fc-ajax引导",
+        "items": [
+            {
+                "name": "开始",
+                "url": "../guide",
+                "title": "开始使用fc-ajax",
+                "description": "快速上手 fc-ajax"
+            }
+        ]
+    }
+]

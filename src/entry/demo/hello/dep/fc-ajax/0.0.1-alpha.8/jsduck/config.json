@@ -1,0 +1,20 @@
+{
+    "--title": "fc-core",
+    "--output": "../doc/api",
+    "--categories": "categories.json",
+    "--": [
+        "../src/ajax.js",
+        "../src/AjaxRequest.js",
+        "../src/config.js",
+        "../src/globalData.js",
+        "../src/hooks.js",
+        "../src/main.js",
+        "../src/request.js",
+        "../src/status.js",
+        "meta/AjaxHook.js",
+        "meta/AjaxOption.js",
+        "meta/EventTarget.js",
+        "meta/FakeXHR.js",
+        "meta/Promise.js"
+    ]
+}

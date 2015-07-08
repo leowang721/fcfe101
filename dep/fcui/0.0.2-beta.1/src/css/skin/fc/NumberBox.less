@@ -1,0 +1,87 @@
+.ui-numberbox {
+    .disable {
+        i,
+        i:hover {
+            color: #D8D8D8;
+        }
+    }
+}
+.ui-numberbox-wrapper {
+    display: inline-block;
+    position: relative;
+}
+
+.ui-numberbox-input {
+    width: 120px;
+    height: 30px;
+    border: 1px solid #D8D8D8;
+    border-right: 0px;
+    background: none;
+}
+
+.ui-numberbox-arrow-wrapper {
+    display: inline-block;
+    position: absolute;
+    left: 120px;
+    i {
+        color: #888;
+        position: relative;
+        font-size: 14px;
+        &:hover {
+            color: #2F82F5;
+        }
+    }
+
+    .arrow {
+        display: inline-block;
+        position: absolute;
+        width: 30px;
+        height: 15px;
+        border: 1px solid #D8D8D8;
+        background: #F8F8F8;
+        text-align: center;
+        cursor: pointer;
+    }
+    .ui-numberbox-arrow-up {
+        .arrow;
+
+    }
+    .ui-numberbox-arrow-down {
+        .arrow;
+        bottom: -32px;
+    }
+}
+
+.ui-numberbox-range-tip {
+    display: inline-block;
+    position: relative;
+    left: 45px;
+    color: #888;
+}
+
+.ui-numberbox-validity-label {
+    color: #DC7642;
+    position: relative;
+    left: 45px;
+}
+
+.ui-numberbox-disabled {
+    i {
+        color: #D8D8D8;
+    }
+}
+
+.ui-numberbox-input-placeholder {
+    position: absolute;
+    line-height: 32px;
+    height: 32px;
+    color: #888;
+}
+
+.ui-numberbox-arrow-up-disabled,
+.ui-numberbox-arrow-down-disabled {
+    i,
+    i:hover {
+        color: #D8D8D8;
+    }
+}

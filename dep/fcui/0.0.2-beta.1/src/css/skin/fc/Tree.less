@@ -1,0 +1,70 @@
+/**
+ * @file ESUI.Tree凤巢定制版皮肤
+ * @author Cory (kuanghongrui@baidu.com)
+ */
+
+.@{skin-fc-prefix}-tree {
+    
+    .@{skin-fc-prefix}-tree-content-wrapper {
+        border: 0;
+        padding-left: 0;
+        height: 30px;
+        line-height: 30px;
+        
+        .@{skin-fc-prefix}-tree-node-indicator-empty,
+        .@{skin-fc-prefix}-tree-node-indicator-collapsed,
+        .@{skin-fc-prefix}-tree-node-indicator-expanded {
+            width: 16px;
+            height: 16px;
+            margin: 7px 6px 7px 0;
+        }
+        
+        .@{skin-fc-prefix}-tree-node-indicator-collapsed,
+        .@{skin-fc-prefix}-tree-node-indicator-expanded {
+            &:extend(.font-icon);
+            background-image: none;
+            text-indent: 0;
+        }
+        
+        .@{skin-fc-prefix}-tree-node-indicator-collapsed:before {
+            #skin-fc-mixin > .use-font-icon(@font-icon-caret-right);
+            color: @skin-fc-text-color-gray;
+        }
+        .@{skin-fc-prefix}-tree-node-indicator-expanded:before {
+            #skin-fc-mixin > .use-font-icon(@font-icon-caret-down);
+            color: @skin-fc-text-color-gray;
+        }
+        
+        .@{skin-fc-prefix}-tree-node-indicator {
+            &:hover {
+                &:before {
+                    color: @skin-fc-text-color-blue;
+                }
+            }
+        }
+        
+        .@{skin-fc-prefix}-tree-item-content {
+            color: @skin-fc-text-color-gray-dark;
+        }
+        
+        .@{skin-fc-prefix}-tree-node-indicator-empty,
+        .@{skin-fc-prefix}-tree-node-indicator-previous,
+        .@{skin-fc-prefix}-tree-node-indicator-far-previous {
+            &:before {
+                content: '';
+            }
+            text-indent: -1000px;
+        }
+    }
+    
+    .@{skin-fc-prefix}-tree-content-wrapper:not(.@{skin-fc-prefix}-tree-content-wrapper-selected) {
+        &:hover {
+            background: @skin-fc-bg-color-hover-blue;
+        }
+    }
+    
+    .@{skin-fc-prefix}-tree-content-wrapper-selected {
+        font-weight: bold;
+        background: @skin-fc-bg-color-selected;
+    }
+}

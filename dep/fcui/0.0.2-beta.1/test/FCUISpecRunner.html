@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>FCUI Spec Runner in Jasmine v2.1.2</title>
+
+    <link rel="shortcut icon" type="image/png" href="lib/jasmine-2.1.2/jasmine_favicon.png">
+    <link rel="stylesheet" href="lib/jasmine-2.1.2/jasmine.css">
+
+    <script src="lib/jasmine-2.1.2/jasmine.js"></script>
+    <script src="lib/jasmine-2.1.2/jasmine-html.js"></script>
+    <script src="lib/jasmine-2.1.2/boot.js"></script>
+
+    <script src="http://s1.bdstatic.com/r/www/cache/ecom/esl/1-8-6/esl.js"></script>
+    <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+
+    <script>
+        require.config({
+            'baseUrl': '../src',
+            'paths': {},
+            'packages': [
+                {
+                    'name': 'mini-event',
+                    'location': '../dep/mini-event/1.0.2/src',
+                    'main': 'main'
+                },
+                {
+                    'name': 'underscore',
+                    'location': '../dep/underscore/1.6.0/src',
+                    'main': 'underscore'
+                },
+                {
+                    'name': 'moment',
+                    'location': '../dep/moment/2.7.0/src',
+                    'main': 'moment'
+                },
+                {
+                    'name': 'etpl',
+                    'location': '../dep/etpl/3.0.0/src',
+                    'main': 'main'
+                },
+                {
+                    'name': 'esui',
+                    'location': '../dep/esui/3.1.0-beta.4/src',
+                    'main': 'main'
+                },
+                {
+                    'name': 'eoo',
+                    'location': '../dep/eoo/0.1.1/src',
+                    'main': 'main'
+                },
+                {
+                    'name': 'fcui',
+                    'location': './',
+                    'main': 'main'
+                },
+                {
+                    'name': 'spec',
+                    'location': './spec'
+                },
+                {
+                    'name': 'fc-core',
+                    'location': '../dep/fc-core/0.0.1-alpha.7/src',
+                    'main': 'main'
+                },
+                {
+                    'name': 'promise',
+                    'location': '../dep/promise/1.0.0/src',
+                    'main': 'main'
+                },
+                {
+                    'name': 'fc-icon',
+                    'location': '../dep/fc-icon/0.0.4/src',
+                    'main': 'index'
+                }
+            ]
+        });
+    </script>
+
+    <!-- include source files here... -->
+    <script>
+        $(function () {
+            require([
+                'spec/libSpec'
+            ], function () {            
+                htmlReporter.initialize();
+                jasmine.getEnv().execute();
+            });            
+        });
+    </script>
+
+    <!-- include spec files here... -->
+    <script src="spec/libSpec.js"></script>
+</head>
+
+<body>
+</body>
+</html>

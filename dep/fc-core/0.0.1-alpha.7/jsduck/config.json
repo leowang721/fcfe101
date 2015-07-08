@@ -1,0 +1,21 @@
+{
+    "--title": "fc-core",
+    "--output": "../doc/api",
+    "--categories": "categories.json",
+    "--": [
+        "../src/aop.js",
+        "../src/assert.js",
+        "../src/browser.js",
+        "../src/Enum.js",
+        "../src/EventTarget.js",
+        "../src/main.js",
+        "../src/oo.js",
+        "../src/Promise.js",
+        "../src/setImmediate.js",
+        "../src/tpl.js",
+        "../src/util.js",
+        "../src/extension/underscore.js",
+        "meta/Promise.js",
+        "meta/EnumItem.js"
+    ]
+}

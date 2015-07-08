@@ -1,0 +1,52 @@
+.ui-droplayerbutton:extend(.ui-select) {
+    border: 1px solid @skin-fc-shadow-color;
+}
+.skin-ui-fc-droplayerbutton:extend(.skin-ui-fc-select) {}
+.skin-ui-fc-droplayerbutton:hover:extend(.skin-ui-fc-select:hover) {}
+.skin-ui-fc-droplayerbutton:focus:extend(.skin-ui-fc-select:focus) {}
+.skin-ui-fc-droplayerbutton:after:extend(.skin-ui-fc-select:after) {}
+
+.skin-ui-fc-droplayerbutton-active:extend(.skin-ui-fc-select-active) {}
+.skin-ui-fc-droplayerbutton-active:hover:extend(.skin-ui-fc-select-active) {}
+.skin-ui-fc-droplayerbutton-active:focus:extend(.skin-ui-fc-select-active) {}
+.skin-ui-fc-droplayerbutton-active:after:extend(.skin-ui-fc-select-active:after) {}
+
+.ui-droplayerbutton-layer {
+    overflow: visible;
+    padding: 4px 0;
+    color: @skin-fc-text-color-gray-dark;
+    border: 1px solid @skin-fc-text-color-gray-light;
+    #skin-fc-mixin > .box-shadow(0px 1px 3px @skin-fc-shadow-color);
+    background: @skin-fc-bg-color-white;
+
+    .ui-droplayerbutton-footer {
+        padding: 10px;
+    }
+
+    .ui-droplayerbutton-content{
+        padding: 10px 10px 0;
+    }
+
+    .ui-droplayerbutton-title {
+        position: relative;
+        line-height: 25px;
+        .ui-droplayerbutton-close-icon {
+            position: absolute;
+            top: 7px;
+            right: 7px;
+            cursor: pointer;
+            height: 12px;
+            width: 12px;
+            overflow: hidden;
+            color: #F00;
+        }
+    }
+
+    &-confirm-button {
+        margin-right:10px;
+    }
+    
+    &-hidden {
+        display: none;
+    }
+}

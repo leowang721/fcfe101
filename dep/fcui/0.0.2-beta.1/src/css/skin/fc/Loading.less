@@ -1,0 +1,31 @@
+.set-ui-loading-img(@left, @padding-right) {
+    display: inline-block;
+    position: relative;
+    left: @left;
+    padding-right: @padding-right;
+}
+.view-loading {
+    height: 50px;
+    position: relative;
+    display: inline-block;
+    padding-right: 20px;
+    .view-loading-img {
+        &-normal {
+            background-image: url("../../img/fcui-loading-paw.gif");
+            background-repeat: no-repeat;
+            .set-ui-loading-img(10px, 10px);
+            height: 32px;
+            width: 32px;
+            top: 10px;
+        }
+        &-progress {
+            .set-ui-loading-img(20px, 25px);
+            height: 7px;
+            width: 80px;
+        }
+    }
+    .view-loading-text {
+        position: relative;
+        line-height: 50px;
+    }
+}

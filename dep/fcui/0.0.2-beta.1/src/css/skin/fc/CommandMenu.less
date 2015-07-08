@@ -1,0 +1,309 @@
+/**
+ * @file ESUI.CommandMenu凤巢定制版皮肤
+ * @author Feixiang Yuan(yuanfeixiang@baidu.com)
+ * @date 2014-08-24
+ */
+ 
+/**
+ * ESUI (Enterprise Simple UI)
+ * Copyright 2013 Baidu Inc. All rights reserved.
+ * 
+ * @file 对话框样式
+ * @author dbear
+ */
+@import "../../esui/mixin.less";
+@import "../../esui/variable.less";
+
+.@{ui-class-prefix}-fccommandmenu {
+    border: 1px solid #D8D8D8;
+    border-radius: 3px 3px 3px 3px;
+    .interactive-cursor ();
+    .inline-block ();
+    font-size: 12px;
+    height: 17px;
+    line-height: 17px;
+    padding: 3px 3px 3px 5px;
+    width: 100px;
+}
+
+.@{ui-class-prefix}-fccommandmenu-layer {
+    .reset-list ();
+    .box-sizing (border-box);
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #A8ADB6;
+    font-size: 12px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 0 1px;
+    position: absolute;
+    text-align: left;
+    z-index: 1002;
+
+    span {
+        display: block;
+    }
+
+    li {
+        color: #333333;
+        .interactive-cursor ();
+        height: 22px;
+        line-height: 22px;
+        margin: 0 0 1px;
+        padding: 0 4px;
+        overflow: hidden;
+
+        &:hover {
+            background-color: #F1F1F1;
+        }
+    }
+}
+
+.@{ui-class-prefix}-fccommandmenu-layer-selected {
+    background-color: #E0E0E0;
+    border: 1px solid #DDDDDD;
+}
+
+.@{ui-class-prefix}-fccommandmenu-layer-hidden {
+    display: none;
+}
+
+.@{ui-class-prefix}-fccommandmenu-disabled {
+    color: #999999;
+    &:hover,
+    &:focus,
+    &:active {
+        .linear-gradient-background-with-image (
+            top, #ffffff, #f6f6f6, "../img/esui-combo-arrow.png", right, -6px, #fff);
+    }
+}
+
+
+
+.set-menu(
+    @icon: @font-icon-caret-down;
+    @color: @skin-fc-text-color-gray-dark;
+    @border-color: @skin-fc-shadow-color;
+    @background-color: @skin-fc-bg-color-gray; 
+    @icon-color: @skin-fc-text-color-gray;
+    @shadow-color: @skin-fc-shadow-color;
+    @hover-border-color: @skin-fc-bg-color-blue-light;
+    @hover-backgound-color: @skin-fc-bg-color-white;
+    @hover-icon-color: @skin-fc-bg-color-blue;
+    @active-border-color: @skin-fc-bg-color-blue-light;
+    @active-background-color: @skin-fc-bg-color-white;
+    @active-icon-color: @skin-fc-bg-color-blue;
+    @disabled-background-color: @skin-fc-bg-color-gray;
+    @disabled-border-color: @skin-fc-text-color-gray-light;
+    @disabled-icon-color: @skin-fc-text-color-disabled;
+) {
+    position: relative;
+    overflow: hidden;
+    height: 28px;
+    line-height: 28px;
+    padding: 0;
+    padding-left: 10px;
+    padding-right: 25px;
+    width: auto;
+    background: none;
+    background-image: none;
+    background-color: @background-color;
+    border: 1px solid @border-color;
+    border-radius: 2px;
+    color: @color;
+
+    &:before {
+      content: '.';
+      visibility: hidden;
+      display: inline-block;
+      width: 0;
+    }
+    &:after {
+        position: absolute;
+        right: 2px;
+        top: 0;
+        width: 16px;
+        padding: 6px 2px;
+        height: 16px;
+        line-height: 16px;
+        font-size: 16px;
+        color: @icon-color;
+        #skin-fc-mixin > .use-font-icon(@icon);
+    }
+    &:hover,
+    &:focus,
+    &:active{
+        border-color: @hover-border-color;
+        background-image: none;
+        background-color: @hover-backgound-color;
+        #skin-fc-mixin > .box-shadow(0px 1px 3px @shadow-color);
+        &:after {
+            color: @hover-icon-color;
+        }
+    }
+    
+    &-active,
+    &-active:hover,
+    &-active:focus,
+    &-active:active {
+        border-color: @active-border-color;
+        background-image: none;
+        background-color: @active-background-color;
+        #skin-fc-mixin > .box-shadow(0px 1px 3px @shadow-color);
+        &:after {
+            color: @active-icon-color;
+        }
+    }
+    &-disabled,
+    &-disabled:hover,
+    &-disabled:focus,
+    &-disabled:active {
+        cursor: not-allowed;
+        border-color: @disabled-border-color;
+        background-image: none;
+        background-color: @disabled-background-color;
+        #skin-fc-mixin > .box-shadow(0 0 0);
+        &:after {
+            color: @disabled-icon-color;
+        }
+    }
+}
+.ui-fccommandmenu {
+    .set-menu();
+}
+.ui-combo-fccommandmenu {
+    .set-menu(
+        @border-color: @skin-fc-bg-color-blue-light;
+        @background-color: @skin-fc-bg-color-blue-light;
+        @icon-color: @skin-fc-bg-color-white;
+        @hover-backgound-color: @skin-fc-bg-color-blue;
+        @hover-icon-color: @skin-fc-bg-color-white;
+        @active-background-color: @skin-fc-bg-color-white;
+        @active-icon-color: @skin-fc-bg-color-blue;
+    );
+}
+
+.ui-fccommandmenu-layer,
+.ui-combo-fccommandmenu-layer {
+    padding: 4px 0;
+    color: @skin-fc-text-color-gray-dark;
+    border: 1px solid @skin-fc-text-color-gray-light;
+    #skin-fc-mixin > .box-shadow(0px 1px 3px @skin-fc-shadow-color);
+    background: @skin-fc-bg-color-white;
+    li {
+        height: 24px;
+        line-height: 24px;
+        padding: 0 10px;
+        color: @skin-fc-text-color-gray-dark;
+        &:hover {
+            background-color: @skin-fc-bg-color-hover-blue;
+        }
+    }
+    .ui-fccommandmenu-node-disabled,
+    .ui-fccommandmenu-node-disabled:hover {
+        color: @skin-fc-text-color-disabled;
+        background-color: @skin-fc-bg-color-white;
+    }
+}
+
+.resetFcCommandButton() {
+    border: 0!important;
+    background-color: transparent!important;
+    box-shadow: none!important;
+    overflow: visible!important;
+    position: relative;
+    padding: 0!important;
+}
+.ui-fccommandmenu-button {
+    .resetFcCommandButton();
+    &:hover {
+        .resetFcCommandButton();
+    }
+    &:after {
+        content: ''!important;
+        width: 0!important;
+        padding: 0!important;
+        height: 0!important;
+    }
+    .ui-fccommandmenu-main-button {
+        display: inline-block;
+        overflow: hidden;
+        height: 28px;
+        line-height: 28px;
+        padding: 0 10px;
+        width: auto;
+        background-image: none;
+        background-color: @skin-fc-text-color-blue-light;
+        border: 1px solid @skin-fc-text-color-blue-light;
+        border-radius: 2px 0 0 2px;
+        color: @skin-fc-bg-color-white;
+        &:hover {
+            background-color: @skin-fc-text-color-blue;
+        }
+    }
+
+    .ui-fccommandmenu-drop-button {
+        display: inline-block;
+        overflow: visible;
+        width: 20px;
+        height: 28px;
+        background-color: @skin-fc-text-color-blue-light;
+        border: 1px solid @skin-fc-text-color-blue-light;
+        border-left: 1px solid #589EFF;
+        border-radius: 0 2px 2px 0;
+        &:hover {
+            background-color: @skin-fc-text-color-blue;
+        }
+        &:after {
+            position: absolute;
+            right: 0;
+            width: 16px;
+            padding: 6px 2px;
+            height: 16px;
+            line-height: 16px;
+            color: @skin-fc-bg-color-white;
+            display: inline-block;
+            font-family: 'fcIcon';
+            speak: none;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: normal;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            content: "\e61e";
+        }
+    }
+
+    // commandmenu-button 包含2个button，都是30px高
+    height: 30px;
+}
+
+.ui-fccommandmenu-active {
+    .ui-fccommandmenu-drop-button,
+    .ui-fccommandmenu-drop-button:hover
+    {
+        background-color: @skin-fc-bg-color-white;
+        &:after {
+           color: @skin-fc-text-color-blue;
+        }
+    }
+}
+
+.ui-fccommandmenu-disabled {
+    .ui-fccommandmenu-main-button,
+    .ui-fccommandmenu-main-button:hover,
+    .ui-fccommandmenu-drop-button,
+    .ui-fccommandmenu-drop-button:hover
+    {
+        color: @skin-fc-text-color-disabled;
+        background-color: @skin-fc-bg-color-gray-light;
+        border-color: @skin-fc-text-color-gray-light;
+        cursor: not-allowed;
+        &:after {
+            color: @skin-fc-text-color-disabled;
+        }
+    }
+    .ui-fccommandmenu-drop-button {
+        border-left: none;
+    }
+}

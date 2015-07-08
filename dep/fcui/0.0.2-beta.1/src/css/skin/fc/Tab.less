@@ -1,0 +1,139 @@
+/**
+ * @file ESUI.Tab凤巢定制版皮肤
+ * @author Hao Zhang (zhanghao14)
+ */
+
+// Tab高度
+@skin-fc-tab-height: 50px;
+@skin-fc-tab-medium-height: 30px;
+
+//border-bottom color
+@skin-fc-tab-border-bottom-color: #E8E8E8;
+
+//font-size
+@skin-fc-tab-font-size: 14px;
+@skin-fc-tab-font-medium-size: 12px;
+
+//navigator border
+@skin-fc-tab-navigator-border-width: 2px 1px 1px 1px;
+@skin-fc-tab-medium-navigator-border-width: 0 0 1px 0;
+
+//item margin top
+@skin-fc-tab-item-margin-top: -2px;
+@skin-fc-tab-medium-item-margin-top: 0px;
+
+.set-tab-colors(@background-color; @border-color; @text-color) {
+    background: @background-color;
+    border-color: @border-color;
+    color: @text-color;
+}
+
+.set-tab-height (@tab-height) {
+    height: @tab-height;
+    line-height: @tab-height;
+}
+
+.set-tab(
+    @background-color: @skin-fc-bg-color-gray;
+    @border-color: @skin-fc-shadow-color;
+    @text-color: @skin-fc-text-color-gray-dark;
+    @tab-height: @skin-fc-tab-height;
+    @font-size: @skin-fc-tab-font-size;
+) {
+    .set-tab-colors(@background-color; @border-color; @text-color);
+    .set-tab-height(@tab-height);
+    text-align: center;
+    font-weight: bold;
+    font-size: @font-size;
+}
+
+.set-horizontal(
+    @tab-height: @skin-fc-tab-height;
+    @border-width: @skin-fc-tab-navigator-border-width;
+    @margin-top: @skin-fc-tab-item-margin-top;
+) {
+    .ui-tab-navigator {
+        overflow:visible;
+        padding-left: 0;
+        border-width: @border-width;
+        border-style: solid;
+        border-color: @skin-fc-shadow-color;
+        .set-tab-height(@tab-height);
+    }
+
+    .ui-tab-item {
+        .set-tab-height(@tab-height);
+        padding: 0 20px;
+        margin-right: 0;
+        margin-top: @margin-top;
+        border-bottom: @skin-fc-shadow-color 1px solid;
+        border-top: @skin-fc-shadow-color 2px solid;
+        border-left: hidden;
+        &:hover {
+            border-top-color: @skin-fc-bg-color-blue;
+        }
+    }
+
+    .ui-tab-item-active {
+        border-top-color: @skin-fc-bg-color-blue;
+        border-bottom: hidden;
+    }
+}
+
+.@{skin-fc-prefix}-tab {
+    .set-tab;
+
+    &-horizontal {
+       .set-horizontal;
+    }
+}
+
+.@{skin-fc-prefix}-medium-tab {
+    .set-tab(
+        @background-color: @skin-fc-bg-color-white;
+        @tab-height: @skin-fc-tab-medium-height;
+        @font-size: @skin-fc-tab-font-medium-size;
+    );
+
+    &-horizontal {
+        .set-horizontal(
+            @tab-height: @skin-fc-tab-medium-height;
+            @border-width: @skin-fc-tab-medium-navigator-border-width;
+            @margin-top: @skin-fc-tab-medium-item-margin-top;
+        );
+    }
+}
+
+.@{skin-fc-prefix}-text-tab {
+    .set-tab(
+        @background-color: @skin-fc-bg-color-white;
+        @tab-height: @skin-fc-tab-medium-height;
+        @font-size: @skin-fc-tab-font-medium-size;
+    );
+
+    .ui-tab-navigator {
+        overflow:visible;
+        padding-left: 0;
+        .set-tab-height(@skin-fc-tab-medium-height);
+    }
+
+    .ui-tab-item {
+        .set-tab-height(@skin-fc-tab-medium-height);
+        background-color: @skin-fc-bg-color-white;
+        font-weight: normal;
+        padding: 0;
+        margin: 0 20px 8px;
+        border-bottom: @skin-fc-tab-border-bottom-color 1px solid;
+        border-top: hidden;
+        border-left: hidden;
+        border-right: hidden;
+        &:hover {
+            font-weight: bold;
+        }
+    }
+
+    .ui-tab-item-active {
+        border-bottom: @skin-fc-bg-color-blue 2px solid;
+        font-weight: bold;
+    }
+}

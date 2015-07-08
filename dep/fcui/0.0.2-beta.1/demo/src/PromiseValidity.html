@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Asynchronized Rule Check - FCUI Demo</title>
+        <script src="./esl.js"></script>
+        <script src="./jquery.min.js"></script>
+        <script src="../../dep/esui/3.1.0-beta.4/src/customShim.js"></script>
+        <link rel="stylesheet" href="./demo.css" />
+        <link rel="stylesheet" href="../../src/css/main.css" />
+        <link rel="stylesheet" href="../../dep/fc-icon/0.0.4/src/css/fc-icon.css"/>
+        <script>
+            require.config({
+                'baseUrl': '../../src',
+                'paths': {},
+                'packages': [
+                    {
+                        'name': 'mini-event',
+                        'location': '../dep/mini-event/1.0.2/src',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'underscore',
+                        'location': '../dep/underscore/1.6.0/src',
+                        'main': 'underscore'
+                    },
+                    {
+                        'name': 'moment',
+                        'location': '../dep/moment/2.7.0/src',
+                        'main': 'moment'
+                    },
+                    {
+                        'name': 'etpl',
+                        'location': '../dep/etpl/3.0.0/src',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'esui',
+                        'location': '../dep/esui/3.1.0-beta.4/src',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'fcui',
+                        'location': './',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'eoo',
+                        'location': '../dep/eoo/0.1.1/src',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'fc-core',
+                        'location': '../dep/fc-core/0.0.1-alpha.7/src',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'promise',
+                        'location': '../dep/promise/1.0.0/src',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'fc-icon',
+                        'location': '../dep/fc-icon/0.0.4/src',
+                        'main': 'index'
+                    }
+                ]
+            });
+        </script>
+    </head>
+    <body>
+        <header>Asynchronized Rule Check</header>
+        <div class="container">
+            <input data-ui-type="TextBox" data-ui-id="text-box" data-ui-validity-label='text-box-valid' data-ui-slow-check="true"></input>
+            <button data-ui="type:Button;id:defaultBtn;">检查一下</button>
+            <label data-ui-type="Validity" data-ui-id="text-box-valid"></label>
+        </div>
+        <script>
+        require(
+            [
+                'fcui',
+                'fcui/validator/Rule',
+                'fc-core/oo',
+                'fc-core/Promise',
+                'fcui/validator/ValidityState',
+                'fcui/Button',
+                'fcui/TextBox',
+                'fcui/extension/FcUiSkin',
+                'fcui/extension/PromisedValidityInputControl',
+                'fcui/extension/PromisedValidityLabel'
+            ],
+            function (ui, Rule, oo, Promise, ValidityState) {
+                var SlowCheck = oo.derive(Rule, {
+                    type: 'slowCheck',
+                    check: function (value, control) {
+                        var p = new Promise(function (resolve, reject) {
+                            setTimeout(function () {
+                                resolve('你填了' + value + '，很好');
+                            }, 2000);
+                        });
+                        return new ValidityState(p, '等等，一会儿就好');
+                    }
+                });
+
+                ui.registerRule(SlowCheck);
+
+                var controls = ui.init(document.body);
+                ui.get('defaultBtn').on('click', function () {
+                    ui.get('text-box').validate();
+                });
+            }
+        )
+        </script>
+    </body>
+</html>

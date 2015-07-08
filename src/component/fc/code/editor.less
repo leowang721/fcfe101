@@ -1,0 +1,38 @@
+.fc-code-editor {
+    .ui-tab {
+        border-bottom: none;
+    }
+    .ui-tab-navigator {
+        display: block;
+        position: relative;
+        height: 23px;
+        box-sizing: content-box;
+        border-bottom: none;
+
+        .ui-tab-item {
+            background-color: #dddddd;
+            border: 1px solid #272822;
+            border-width: 1px 1px 0 1px;
+            border-radius: 6px 6px 0 0;
+            display: block;
+            // width: 30px;
+            height: 23px;
+            line-height: 23px;
+            text-align: center;
+            overflow: hidden;
+            float: left;
+            margin: 0;
+            padding: 2px 20px 0 20px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        .ui-tab-item-active {
+            color: #ffffff;
+            background-color: #272822;
+        }
+    }
+    #fc-code-editor-main {
+        min-height: 400px;
+        width: 630px;
+    }
+}

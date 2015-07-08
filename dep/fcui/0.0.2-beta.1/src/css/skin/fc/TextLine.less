@@ -1,0 +1,47 @@
+/**
+ * @file ESUI.Dialog TextLine的皮肤
+ * @author Lingling Yan(yanlingling@baidu.com)
+ */
+
+.@{skin-fc-prefix}-textline {
+    border: 1px solid @skin-fc-shadow-color;
+    background: none;
+    background-color: @skin-fc-bg-color-white;
+    #skin-fc-mixin > .border-radius(2px);
+    padding-top: 4px;
+    &-num-line {
+        width: 20px;
+        background: none;
+        background-color: @skin-fc-bg-color-gray;
+        color: @skin-fc-text-color-gray;
+        font-size: 12px;
+        line-height: 24px;
+        font-weight: normal;
+        text-align: center;
+    }
+
+    &-text-container {
+        left: 30px;
+        textarea {
+            line-height: 24px;
+            resize: none;
+            color: @skin-fc-text-color-gray-dark;
+        }
+    }
+    &:hover {
+        border: 1px solid @skin-fc-text-color-blue;
+    }
+
+    /** 验证 */
+    &-validity-invalid {
+      border: 1px solid @skin-fc-invalid-border-color;
+    }
+    &-validity-label-invalid {
+        background: none;
+        border: 0px;
+        padding: 0px;
+        padding-left: 6px;
+        color: @skin-fc-invalid-color;
+    }
+}
+

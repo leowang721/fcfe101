@@ -1,0 +1,116 @@
+/**
+ * @file ESUI.Pager凤巢定制版皮肤
+ * @author William Wang(wangcunwei@baidu.com)
+ */
+
+.skin-ui-fc-pager-item-height () {
+    height: 30px;
+    line-height: 30px;
+}
+
+.skin-ui-fc-pager-item-width-height () {
+    height: 28px;
+    line-height: 28px;
+    min-width: 30px;
+    width: auto;
+}
+
+.skin-ui-fc-pager-item-base (
+    @background: @skin-fc-bg-color-gray,
+    @border-color: @skin-fc-shadow-color,
+    @color: @skin-fc-text-color-gray-dark
+) {
+    .skin-ui-fc-pager-item-width-height();
+    background: none;
+    background-image: none;
+    background-color: @background;
+    border: 1px solid @border-color;
+    border-radius: 2px;
+    color: @color;
+    padding: 0;
+    text-align: center;
+    cursor: pointer;
+    &:hover {
+        #skin-fc-mixin > .box-shadow(0px 1px 3px @skin-fc-shadow-color);
+    }
+}
+
+.skin-ui-fc-pager-simple-item () {
+    border: none;
+    width: auto;
+}
+
+.@{skin-fc-prefix}-pager {
+    margin-top: 0;
+    .skin-ui-fc-pager-item-height();
+    
+    .@{skin-fc-prefix}-pager-select-wrapper {
+        margin-left: 0;
+        float: left;
+        .@{skin-fc-prefix}-pager-label {
+            margin-right: 10px;
+        }
+        .@{skin-fc-prefix}-select {
+            width: auto!important;
+        }
+    }
+    
+    .@{skin-fc-prefix}-pager-main {
+        li {
+            margin: 0 5px;
+            &:first-child {
+                margin-left: 10px;
+            }
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+        
+        .@{skin-fc-prefix}-pager-item-omit {
+            width: 12px;
+            margin: 0;
+        }
+        
+        .@{skin-fc-prefix}-pager-item {
+            .skin-ui-fc-pager-item-base();
+        }
+        .@{skin-fc-prefix}-pager-item-current {
+            .skin-ui-fc-pager-item-base(
+                @background: @skin-fc-bg-color-white,
+                @border-color: @skin-fc-text-color-blue,
+                @color: @skin-fc-text-color-blue
+            );
+            cursor: default;
+            &:hover {
+                #skin-fc-mixin > .box-shadow(0 0 0);
+            }
+        }
+        .@{skin-fc-prefix}-pager-item-extend {
+            .skin-ui-fc-pager-item-base();
+            padding: 0 10px;
+            width: auto;
+        }
+    }
+}
+
+.@{skin-fc-prefix}-simple-pager {
+    .@{skin-fc-prefix}-pager-main {
+        li {
+            margin: 0;
+        }
+        
+        .@{skin-fc-prefix}-pager-item, .@{skin-fc-prefix}-pager-item-current {
+            .skin-ui-fc-pager-simple-item();
+            padding: 0 5px;
+        }
+        
+        .@{skin-fc-prefix}-pager-item-extend {
+            .skin-ui-fc-pager-simple-item();
+            padding: 0 25px;
+        }
+        
+        .@{skin-fc-prefix}-pager-item-omit {
+            padding: 0 5px;
+        }
+    }
+}

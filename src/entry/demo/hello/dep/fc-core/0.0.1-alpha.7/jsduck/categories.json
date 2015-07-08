@@ -1,0 +1,45 @@
+[
+    {
+        "name": "fc-core",
+        "groups": [
+            {
+                "name": "基础&环境",
+                "classes": [
+                    "fc.core"
+                ]
+            },
+            {
+                "name": "环境",
+                "classes": [
+                    "fc.core.browser"
+                ]
+            },
+            {
+                "name": "工具",
+                "classes": [
+                    "fc.core.aop",
+                    "fc.core.assert",
+                    "fc.core.Enum",
+                    "fc.core.EventTarget",
+                    "fc.core.oo",
+                    "fc.core.Promise",
+                    "fc.core.setImmediate",
+                    "fc.core.tpl",
+                    "fc.core.util"
+                ]
+            },
+            {
+                "name": "扩展",
+                "classes": [
+                    "fc.core.extension.underscore"
+                ]
+            },
+            {
+                "name": "数据结构",
+                "classes": [
+                    "meta.*"
+                ]
+            }
+        ]
+    }
+]

@@ -1,0 +1,73 @@
+/**
+ * @file ESUI.Accordion凤巢定制版皮肤
+ * @author Cory(kuanghongrui@baidu.com)
+ */
+
+.@{skin-fc-prefix}-sidebar {
+    
+    border: 1px solid #F0F0F0;
+    border-radius: 0;
+    
+    #skin-fc-mixin > .box-shadow(0px 1px 3px @skin-fc-shadow-color);
+    
+    .@{skin-fc-prefix}-sidebar-head {
+        height: 37px;
+        line-height: 37px;
+        word-break: break-all;
+        background: none;
+        background-color: @skin-fc-bg-color-white;
+        border-radius: 0;
+        padding-left: 10px;
+        font-size: 12px;
+    }
+    
+    .skin-autohide-button,
+    .skin-fixed-button {
+        &:extend(.font-icon);
+        background-image: none;
+        border: 0;
+        font-size: inherit;
+        width: 16px;
+    }
+    
+    .skin-autohide-button:before,
+    .skin-fixed-button:before {
+        &:extend(.font-icon-pin:before);
+        width: 16px;
+        height: 16px;
+        visibility: visible;
+    }
+    
+    .skin-autohide-button:before {
+        color: #87AFE7;
+    }
+    
+    .skin-fixed-button:before {
+        color: #FFF;
+        text-shadow: 1px 0 0 #B9B9B9, -1px 0 0 #B9B9B9, 0 1px 0 #B9B9B9, 0px -1px 0px #B9B9B9;
+    }
+}
+
+.@{skin-fc-prefix}-sidebar-minibar {
+    width: 40px;
+    background-color: #F8F8F8;
+    border: 0;
+    border-right: 1px solid #D8D8D8;
+    border-radius: 0;
+    padding-left: 0;
+    
+    .@{skin-fc-prefix}-sidebar-minibar-text {
+        display: none;
+    }
+    
+    .@{skin-fc-prefix}-sidebar-minibar-arrow:extend(.font-icon) {
+        background-image: none;
+        left: 0;
+    }
+    
+    .@{skin-fc-prefix}-sidebar-minibar-arrow:before:extend(.font-icon-list:before) {
+        color: #519AFD;
+        font-size: 24px;
+        padding: 0 8px;
+    }
+}

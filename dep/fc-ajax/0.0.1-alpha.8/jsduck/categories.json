@@ -1,0 +1,31 @@
+[
+    {
+        "name": "fc-ajax",
+        "groups": [
+            {
+                "name": "核心",
+                "classes": [
+                    "fc.ajax",
+                    "fc.ajax.request",
+                    "fc.ajax.AjaxRequest",
+                    "fc.ajax.Ajax"
+                ]
+            },
+            {
+                "name": "配置 & hooks",
+                "classes": [
+                    "fc.ajax.config",
+                    "fc.ajax.status",
+                    "fc.ajax.hooks",
+                    "fc.ajax.globalData"
+                ]
+            },
+            {
+                "name": "数据结构",
+                "classes": [
+                    "meta.*"
+                ]
+            }
+        ]
+    }
+]

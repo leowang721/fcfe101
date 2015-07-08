@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8" />
+    <title>Region - FCUI Demo</title>
+    <script src="./esl.js"></script>
+    <script src="./jquery.min.js"></script>
+    <script src="../../dep/esui/3.1.0-beta.4/src/customShim.js"></script>
+    <link rel="stylesheet" href="./demo.css" />
+    <link rel="stylesheet" href="../../src/css/main.css" />
+    <link rel="stylesheet" href="../../dep/fc-icon/0.0.4/src/css/fc-icon.css"/>
+        <script>
+            require.config({
+                'baseUrl': '../../src',
+                'paths': {},
+                'packages': [
+                    {
+                        'name': 'mini-event',
+                        'location': '../dep/mini-event/1.0.2/src',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'underscore',
+                        'location': '../dep/underscore/1.6.0/src',
+                        'main': 'underscore'
+                    },
+                    {
+                        'name': 'moment',
+                        'location': '../dep/moment/2.7.0/src',
+                        'main': 'moment'
+                    },
+                    {
+                        'name': 'etpl',
+                        'location': '../dep/etpl/3.0.0/src',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'esui',
+                        'location': '../dep/esui/3.1.0-beta.4/src',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'fcui',
+                        'location': './',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'eoo',
+                        'location': '../dep/eoo/0.1.1/src',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'fc-core',
+                        'location': '../dep/fc-core/0.0.1-alpha.7/src',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'promise',
+                        'location': '../dep/promise/1.0.0/src',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'fc-icon',
+                        'location': '../dep/fc-icon/0.0.4/src',
+                        'main': 'index'
+                    }
+                ]
+            });
+        </script>
+    </head>
+    <body>
+        <header>schedule</header>
+        <div class="container">
+            <h3>普通</h3>
+            <div style="width:750px;">
+                <div style="margin:10px;"><strong>日程投放控件</strong></div>
+                <esui-fc-schedule name="launchMode" data-ui="id:mySchedule"></esui-fc-schedule>
+            </div>
+            <button id='getRaw'> 获取raw值 </button>
+            <button id='get'> 获取值 </button>
+            <button id='set'> 赋值(setValue) </button>
+            <button id='setRaw'> 赋值(setRawValue) </button>
+            <button id='setD1'> disabled(1) </button>
+            <button id='setD2'> disabled(0) </button>
+            <button id='sel'> select([0,0], [6,23]) </button>
+            <button id='unsel'> unselect([0,0],[6,23]) </button>
+        </div>
+    <script>
+
+        require(
+            [
+                'fcui',
+                'fcui/FcSchedule',
+                'fcui/extension/FcUiSkin'
+            ],
+            function (ui) {
+                ui.init(document.body,{
+                    properties : {
+                        mySchedule: {
+                            rawValue: [
+                            [0,0,1,1,0,0,1,1,0,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1],
+                            [0,1,1,1,0,0,1,1,1,1,1,0,1,1,1,1,1,0,0,0,1,1,1,1],
+                            [0,1,1,1,0,0,1,1,1,1,1,0,1,1,1,1,1,0,0,0,1,1,1,1],
+                            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+                            [1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0],
+                            [0,0,1,1,0,0,1,1,0,1,1,1,1,1,1,1,1,0,0,0,0,1,1,1]
+                            ],
+                            name: 'shedule'
+                        }
+                    }
+                });
+
+                document.getElementById('get').onclick = function() {
+                    alert(ui.get('mySchedule').getValue());
+                }
+
+                document.getElementById('getRaw').onclick = function() {
+                    alert(ui.get('mySchedule').getRawValue());
+                }
+
+                document.getElementById('set').onclick = function() {
+                    ui.get('mySchedule').setValue('100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000');
+                }
+
+                document.getElementById('setRaw').onclick = function() {
+                    ui.get('mySchedule').setRawValue([
+                            [0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+                            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+                            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+                            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+                            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+                            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+                            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+                            ]);
+                }
+
+                document.getElementById('setD1').onclick = function() {
+                    ui.get('mySchedule').set('disabled', 1);
+                }
+
+                document.getElementById('setD2').onclick = function() {
+                    ui.get('mySchedule').set('disabled', 0);
+                }
+
+                document.getElementById('sel').onclick = function() {
+                    ui.get('mySchedule').select([0,0], [6,23]);
+                }
+
+                document.getElementById('unsel').onclick = function() {
+                    ui.get('mySchedule').unselect([0,0], [6,23]);
+                }
+
+                ui.get('mySchedule').onchange  = function (e) {
+
+                    console.info(this.stringifyValue(e.rawValue));
+                };
+
+            }
+        );
+        </script>
+    </body>
+</html>

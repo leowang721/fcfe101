@@ -1,0 +1,21 @@
+
+.@{skin-fc-prefix}-mixedboxgroup:extend(.skin-ui-fc-select all) {
+    @height: 22px;
+
+    &-active:extend(.skin-ui-fc-select-active all) {
+        // 下面这个extend会使得控件hover时跳动，去掉了
+        // &:hover:extend(.skin-ui-fc-select-active) { }
+    }
+
+    &-layer:extend(.skin-ui-fc-select-layer all) {}
+
+    &-item:extend(.skin-ui-fc-select-item all) {}
+
+    &-title {
+        display: inline;
+        height: @height;
+        line-height: @height;
+        margin-left: 6px;
+        border-left: 1px solid @skin-fc-text-color-gray-light;
+    }
+}

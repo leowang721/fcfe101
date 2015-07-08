@@ -1,0 +1,140 @@
+/**
+ * FCUI Table 皮肤，表头的extra部分
+ * @author Han Bing Feng (hanbingfeng@baidu.com)
+ */
+// Table的表头extra部分的结构
+//   th.ui-fctable-hcell
+//   th.ui-fctable-hcell-hover
+//   th.ui-fctable-hcell-sort
+//   th.ui-fctable-hcell-asc
+//   th.ui-fctable-hcell-desc
+//   th.ui-fctable-hcell-tip
+//     div.ui-fctable-hcell-text
+//     div.ui-fctable-hcell-extra
+//       div.ui-fctable-hcell-hsort
+//       div.ui-fctable-hcell-htip
+
+// 表头排序样式
+// & 指代 ui-fctable-hcell-hsort
+.set-sort(
+    @color: @skin-fc-text-color-gray-light;
+    @icon: @font-icon-arrow-down;
+) {
+    &:before {
+        #skin-fc-mixin > .use-font-icon(@icon);
+    }
+    
+    color: @color;
+    background: transparent;
+    height: auto;
+    width: auto;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+.ui-fctable {
+    .ui-fctable-thead {
+        .ui-fctable-hcell {
+            &-sort, &-tip {
+                .ui-fctable-hcell-wrapper {
+                    position: relative;
+                }
+                .ui-fctable-hcell-text {
+                    margin-right: 17px;
+                }
+            }
+
+            .ui-fctable-hcell-extra {
+                position: absolute;
+                top: 12px;
+                right: 0px;
+                .ui-fctable-hcell-htip {
+                    display: inline-block;
+                }
+
+                .ui-fctable-hcell-hsort {
+                    .set-sort();
+                    &:hover {
+                        cursor: pointer;
+                        color: @skin-fc-text-color-blue;
+                    }
+                }
+            }
+
+            &-asc {
+                .ui-fctable-hcell-extra {
+                    .ui-fctable-hcell-hsort {
+                        .set-sort(
+                            @color: @skin-fc-text-color-blue;
+                            @icon: @font-icon-arrow-up;
+                        );
+                    }
+                }
+            }
+
+            &-desc {
+                .ui-fctable-hcell-extra {
+                    .ui-fctable-hcell-hsort {
+                        .set-sort(
+                            @color: @skin-fc-text-color-blue;
+                            @icon: @font-icon-arrow-down;
+                        );
+                    }
+                }
+            }
+        }
+        .ui-fctable-hcell-sort.ui-fctable-hcell-tip {
+            .ui-fctable-hcell-text {
+                margin-right: 34px;
+            }
+        }
+    }
+
+    &-head-fixing {
+        .ui-fctable-thead:not(.ui-fctable-cover-thead) {
+            .ui-fctable-hcell {
+                &-sort, &-tip {
+                    .ui-fctable-hcell-wrapper {
+                        position: inherit;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.ui-fctable.ui-fctable-flow-header-icon {
+    .ui-fctable-thead {
+        tr {
+            // TODO (hanbingfeng) 本意是不影响多选列的表头。应该用更确切的selector
+            .ui-fctable-hcell:not(:first-child) {
+                .ui-fctable-hcell-wrapper {
+                    position: inherit;
+                    padding: 12px 5px 11px;
+                    .ui-fctable-hcell-text {
+                        display: inline;
+                        padding: 0;
+                        margin-right: 0;
+                    }
+                }
+
+                &-sort, &-tip {
+                    .ui-fctable-hcell-wrapper {
+                        position: inherit;
+                    }
+                }
+
+                .ui-fctable-hcell-extra {
+                    position: inherit;
+                    display: inline-block;
+                }
+            }
+            .ui-fctable-hcell-sort.ui-fctable-hcell-tip {
+                .ui-fctable-hcell-text {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Table with Lock Column - FCUI Demo</title>
+        <script src="../esl.js"></script>
+        <script src="../jquery.min.js"></script>
+        <script src="../../../dep/esui/3.1.0-beta.4/src/customShim.js"></script>
+        <link rel="stylesheet" href="../demo.css" />
+        <link rel="stylesheet" href="../../../src/css/main.css" />
+        <link rel="stylesheet" href="../../../dep/fc-icon/0.0.4/src/css/fc-icon.css"/>
+        <script>
+            // derived from ESUI 3.1.0-beta.5 demo file
+            require.config({
+                'baseUrl': '../../../src',
+                'paths': {},
+                'packages': [
+                    {
+                        'name': 'mini-event',
+                        'location': '../dep/mini-event/1.0.2/src',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'underscore',
+                        'location': '../dep/underscore/1.6.0/src',
+                        'main': 'underscore'
+                    },
+                    {
+                        'name': 'moment',
+                        'location': '../dep/moment/2.7.0/src',
+                        'main': 'moment'
+                    },
+                    {
+                        'name': 'etpl',
+                        'location': '../dep/etpl/3.0.0/src',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'esui',
+                        'location': '../dep/esui/3.1.0-beta.4/src',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'fcui',
+                        'location': './',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'ef',
+                        'location': '../dep/ef/3.1.0-beta.2/src',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'eoo',
+                        'location': '../dep/eoo/0.1.1/src',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'er',
+                        'location': '../dep/er/3.1.0-beta.5/src',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'ub-ria',
+                        'location': '../dep/ub-ria/1.0.0-alpha.7/src',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'fc-core',
+                        'location': '../dep/fc-core/0.0.1-alpha.7/src',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'promise',
+                        'location': '../dep/promise/1.0.0/src',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'fc-icon',
+                        'location': '../dep/fc-icon/0.0.4/src',
+                        'main': 'index'
+                    }
+                ]
+            });
+        </script>
+        <script src="../../dep/esui/3.1.0-beta.4/src/customShim.js"></script>
+        <script src="../../dep/jquery.min.js"></script>
+        <link rel="stylesheet" href="../demo.css" />
+        <link rel="stylesheet" href="../../dep/fcui/current/src/css/main.css" />
+    </head>
+    <body>
+        <header>Table</header>
+        <div id="console"></div>
+        <div class="container" id="container" style="margin:0 auto;">
+            <h3>Lock Column</h3>
+            <div data-ui-type="TableWithLockColumn"
+                data-ui-id="myTable"
+                data-ui-has-vborder="true"></div>
+            <br/>
+        </div>
+        <script>
+        var data = [
+            {id:1, name: 'erik', sex: 1},
+            {id:2, name: 'tony', sex: 0},
+            {id:3, name: 'frank', sex: 1},
+            {id:4, name: 'meimei', sex: 1},
+            {id:5, name: 'false', sex: 1},
+            {id:6, name: '0', sex: 1}
+        ];
+        data = data.concat(data);
+        data = data.concat(data);
+        var myTable = null;
+        var testFuns = {}
+        require(
+            [
+                'fcui',
+                'fcui/Table',
+                'fcui/TableWithLockColumn',
+                'fcui/Tip'
+            ],
+            function (ui) {
+                var lib = require('fcui/lib');
+                ui.init(document.body,{
+                    properties : {
+                        myTable: {
+                            datasource: data,
+                            sortable: true,
+                            columnResizable: true,
+                            followHead: true,
+                            subrow:true,
+                            select:'single',
+                            selectMode: 'line',
+                            editable: 1,
+                            subrowMutex: 0,
+                            contentEncode: 1,
+                            zIndex: 1214,
+                            noFollowHeadCache: true,//默认为false,如无必要也最好设置为false,效率更高。
+                            //selectMode :'line',
+                            noDataHtml: '<p style="margin:0;">nothing</p>',
+                            fields: [
+                                {
+                                    title: '编号',
+                                    field: 'id' ,
+                                    sortable: true,
+                                    tip :'编号',
+                                    resizable: true,
+                                    subEntry: 1,
+                                    editable: 1,
+                                    editRules: {
+                                        pattern: /\d/g,
+                                        min: 1
+                                    },
+                                    editContent: function(item){
+                                        return item.id;
+                                    },
+                                    width: 100,
+                                    content: function (item) {
+                                        return item.id;
+                                    }
+                                },
+                                {
+                                    title: '姓名',
+                                    field: 'name' ,
+                                    tip :'姓名',
+                                    align: 'right',
+                                    editable: 1,
+                                    comparer : function( a,b ){
+                                        return a.name.localeCompare( b.name );
+                                    },
+                                    sortable: true,
+                                    resizable : true,
+                                    width: 100,
+                                    content: function (item) {
+                                        var name = '';
+                                        for (var i = 0; i < 20; i++) {
+                                            name += item.name;
+                                        }
+                                        return name;
+                                    }
+                                },
+                                {
+                                    title: '性别',
+                                    field: 'sex' ,
+                                    tip :'性别',
+                                    comparer : function( a,b ){
+                                        return a.sex - b.sex;
+                                    },
+                                    sortable: true,
+                                    resizable : true,
+                                    width: 200,
+                                    content: function (item) {
+                                        return item.sex ? '男' : '女';
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                });
+            }
+        );
+        </script>
+    </body>
+</html>

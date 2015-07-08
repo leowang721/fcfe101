@@ -1,0 +1,39 @@
+/**
+ * @file ESUI.BoxGroup 之 TextBoxGroup 凤巢定制版皮肤
+ * @author Wang Yi(wangyi25@baidu.com)
+ * @date Wed Aug 20 2014
+ */
+
+.@{skin-fc-prefix}-text-boxgroup {
+    font-size: 12px;
+    
+    &-horizontal {
+        label {
+            margin-right: 0;
+
+            input[type='radio'] {
+                display: none;
+
+                & + span {
+                    padding: 0 10px;
+                    border-left: 1px solid @skin-fc-bg-color-gray-dark;
+                    color: @skin-fc-text-color-gray;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: @skin-fc-text-color-gray-dark;
+                    }
+                }
+
+                &:checked + span {
+                    color: @skin-fc-text-color-gray-dark;
+                    font-weight: bold;
+                }
+            }
+
+            &:first-child input[type="radio"] + span {
+                border-left: none;
+            }
+        }
+    }
+}

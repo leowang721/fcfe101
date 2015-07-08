@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Button - FCUI Demo</title>
+        <script src="./esl.js"></script>
+        <script src="./jquery.min.js"></script>
+        <script src="../../dep/esui/3.1.0-beta.4/src/customShim.js"></script>
+        <link rel="stylesheet" href="./demo.css" />
+        <link rel="stylesheet" href="../../src/css/main.css" />
+        <link rel="stylesheet" href="../../dep/fc-icon/0.0.4/src/css/fc-icon.css"/>
+        <script>
+            require.config({
+                'baseUrl': '../../src',
+                'paths': {},
+                'packages': [
+                    {
+                        'name': 'mini-event',
+                        'location': '../dep/mini-event/1.0.2/src',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'underscore',
+                        'location': '../dep/underscore/1.6.0/src',
+                        'main': 'underscore'
+                    },
+                    {
+                        'name': 'moment',
+                        'location': '../dep/moment/2.7.0/src',
+                        'main': 'moment'
+                    },
+                    {
+                        'name': 'etpl',
+                        'location': '../dep/etpl/3.0.0/src',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'esui',
+                        'location': '../dep/esui/3.1.0-beta.4/src',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'fcui',
+                        'location': './',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'eoo',
+                        'location': '../dep/eoo/0.1.1/src',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'fc-core',
+                        'location': '../dep/fc-core/0.0.1-alpha.7/src',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'promise',
+                        'location': '../dep/promise/1.0.0/src',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'fc-icon',
+                        'location': '../dep/fc-icon/0.0.4/src',
+                        'main': 'index'
+                    }
+                ]
+            });
+        </script>
+    </head>
+    <body>
+        <header>Button</header>
+        <div class="container">
+            <button data-ui="type:FcButton;id:defaultBtn;">默认按钮</button>
+            <span data-ui="type:FcButton;id:springBtn;skin:spring">创建</span>
+            <div data-ui="type:FcButton;id:springAddBtn;skin:spring-add">添加</div>
+            <div data-ui="type:FcButton;id:downloadBtn;skin:download">下载</div>
+            <div data-ui="type:FcButton;id:actBtn;">改变文字</div>
+        </div>
+        <script>
+        require(
+            [
+                'fcui',
+                'fcui/FcButton',
+                'fcui/extension/FcUiSkin'
+            ],
+            function (ui) {
+                var controls = ui.init();
+                var defaultBtn = controls[0];
+                var actBtn = controls[4];
+                var labelText = controls[5];
+
+                actBtn.onclick = function () {
+                    defaultBtn.setContent('新文字');
+                };
+            }
+        )
+        </script>
+    </body>
+</html>

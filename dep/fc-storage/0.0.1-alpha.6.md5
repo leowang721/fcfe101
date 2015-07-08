@@ -1,0 +1,19 @@
+{
+    "LICENSE": "94984eb5a843ce1d48e7cd40996a667c",
+    "README.md": "5d7e59ffe8326f813b1cc981f4a93cd4",
+    "doc/api.md": "a455b4f4c6727bf82337f2cc0e884ffc",
+    "jsduck/categories.json": "12a0c104cedf46dcf20b0ece6f9c7630",
+    "jsduck/config.json": "04497616a9b553a4f1f1e0069fa85c58",
+    "jsduck/eg-iframe.html": "185c2362b10900bb0d065b7bfcb66a04",
+    "jsduck/example.json": "bd4a13011ff4270b28d51d8126d33230",
+    "jsduck/guide.json": "158ec888406232d20371f7d15d517ed4",
+    "jsduck/meta/EventTarget.js": "371710121e9c131a1a9fdeef1c3274b7",
+    "package.json": "887dfb273513318323f31838d1c5b8f1",
+    "jsduck/meta/Promise.js": "d528710e146e3a6cbd901523df603f4a",
+    "src/cookie.js": "5fcb583d01190bf28e6f7cffd1c6d0a1",
+    "src/localStorage.js": "6dd345019a6372b47eaab87a4abcf5df",
+    "src/main.js": "33606dbec6da9bb7fd4e7ec43979de8a",
+    "src/sessionStorage.js": "71cd35c55095de1915b0ee663cd3165a",
+    "src/memory.js": "defa011272468fb56fd35f5daef92bbe",
+    "src/util.js": "8548f143e04627f94ac5c4f70df5bae2"
+}

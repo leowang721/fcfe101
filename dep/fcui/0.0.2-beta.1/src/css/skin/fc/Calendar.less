@@ -1,0 +1,96 @@
+/**
+ * @file ESUI.Calendar 凤巢定制版皮肤
+ * @author Wang Yi(wangyi25@baidu.com)
+ * @date Fri Jul 04 2014
+ */
+
+@calendar-border-radius: 2px;
+
+.set-fccalendar-shadow(@shadow-color: @skin-fc-shadow-color) {
+    #skin-fc-mixin > .box-shadow(0 1px 3px @shadow-color);
+}
+
+.@{skin-fc-prefix}-fccalendar {
+    #skin-fc-mixin > .border-radius(@calendar-border-radius);
+    width: 188px;
+    height: 28px;
+    line-height: 2em;
+    padding: 0 10px;
+    border: 1px solid @skin-fc-shadow-color;
+    background: @skin-fc-bg-color-gray;
+    color: @skin-fc-text-color-gray-dark;
+
+    &:hover {
+        .set-fccalendar-shadow();
+        border-color: @skin-fc-text-color-gray-light;
+    }
+
+    &-text {
+        margin-top: 2px;
+        float: left;
+        padding: 0;
+    }
+
+    &-arrow {
+        float: right;
+        width: auto;
+        height: auto;
+        margin: 0;
+        margin-top: 2px;
+        background: none;
+
+        &:before {
+            #skin-fc-mixin > .use-font-icon(@font-icon-caret-down);
+            position: relative;
+            top: 3px;
+            left: 5px;
+        }
+    }
+
+    &-active {
+        background: @skin-fc-bg-color-white;
+    
+        &,
+        &:hover {
+            border-color: @skin-fc-text-color-blue;
+            
+            .@{skin-fc-prefix}-fccalendar-arrow:before {
+                color: @skin-fc-text-color-blue;
+            }
+        }
+    }
+
+    &-disabled,
+    &-read-only {
+        &,
+        &:hover {
+            #skin-fc-mixin > .box-shadow(none);
+            border-color: @skin-fc-shadow-color;
+            color: @skin-fc-text-color-disabled;
+            cursor: default;
+
+            .@{skin-fc-prefix}-fccalendar-arrow:before {
+                color: @skin-fc-shadow-color;
+            }
+        }
+    }
+
+    &-layer {
+        #skin-fc-mixin > .border-radius(@calendar-border-radius);
+        .set-fccalendar-shadow();
+        border: 1px solid @skin-fc-text-color-gray-light;
+        &-hidden {
+            display: none;
+        }
+    }
+
+    /** 验证 */
+    &-validity-invalid {
+        border: 1px solid @skin-fc-invalid-border-color;
+    }
+    &-validity-label-invalid {
+        background: none;
+        border: none;
+        color: @skin-fc-invalid-color;
+    }
+}

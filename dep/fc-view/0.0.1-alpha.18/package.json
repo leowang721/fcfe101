@@ -1,0 +1,30 @@
+{
+    "name": "fc-view",
+    "version": "0.0.1-alpha.18",
+    "maintainers": [
+        {
+            "name": "Leo Wang",
+            "email": "wangkemiao@baidu.com"
+        }
+    ],
+    "contributors": [],
+    "dependencies": {},
+    "main": "main",
+    "description": "FC 视图相关封装",
+    "homepage": "https://github.com/fcfe/fc-view",
+    "repository": "git://github.com/fcfe/fc-view",
+    "edp": {
+        "wwwroot": "/",
+        "depDir": "dep",
+        "srcDir": "src",
+        "loaderAutoConfig": "js,htm,html,tpl,vm,phtml",
+        "loaderUrl": "http://s1.bdstatic.com/r/www/cache/ecom/esl/1-8-6/esl.js",
+        "dependencies": {
+            "er": "~3.1.0-beta.5",
+            "emc": "~1.0.0",
+            "fc-core": "0.x",
+            "fcui": "0.x",
+            "fc-component-ria": "0.x"
+        }
+    }
+}

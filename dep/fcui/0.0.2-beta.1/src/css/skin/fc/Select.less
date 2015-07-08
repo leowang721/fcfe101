@@ -1,0 +1,264 @@
+/**
+ * @file ESUI.Select凤巢定制版皮肤
+ * @author Mahaina(mahaina@baidu.com)
+ */
+
+.set-select-shadow(@shadow-color: @skin-fc-shadow-color) {
+    #skin-fc-mixin > .box-shadow(0px 1px 3px @shadow-color);
+}
+
+.set-select-icon(@fc-icon-color) {
+    &:after {
+        #skin-fc-mixin > .use-font-icon(@font-icon-caret-down);
+        color: @fc-icon-color;
+        display: inline-block;
+        position: absolute;
+        right: 5px;
+        top: 6px;
+    }
+}
+
+// 设置控件颜色
+.set-select-colors(@background-color, @border-color, @text-color) {
+    background: none;
+    background-color: @background-color;
+    border: 1px solid @border-color;
+    color: @text-color;
+}
+
+// 设置控件样式为disable置灰状态
+.set-select-disable(
+    @disabled-background-color: @skin-fc-bg-color-gray,
+    @disabled-border-color: @skin-fc-text-color-gray-light,
+    @disabled-text-color: @skin-fc-text-color-disabled,
+    @disabled-font-icon-color: @skin-fc-text-color-disabled
+) {
+    .set-select-colors(
+        @disabled-background-color,
+        @disabled-border-color,
+        @disabled-text-color
+    );
+    cursor: not-allowed !important;
+}
+
+// 设置控件样式为激活状态(active focus均为该样式)
+.set-select-active(
+    @active-background-color: @skin-fc-bg-color-white,
+    @active-border-color: @skin-fc-bg-color-blue,
+    @active-text-color: @skin-fc-text-color-gray-dark,
+    @active-font-icon-color: @skin-fc-text-color-blue
+) {
+    .set-select-shadow;
+    .set-select-colors(
+        @active-background-color,
+        @active-border-color,
+        @active-text-color
+    );
+    .set-select-icon(@skin-fc-text-color-blue);
+}
+
+// 设置select控件样式
+.set-select(
+    @padding-left,
+    @background-color: @skin-fc-bg-color-gray,
+    @border-color: @skin-fc-text-color-gray-light,
+    @text-color: @skin-fc-text-color-gray-dark,
+    @font-icon-color: @skin-fc-text-color-gray,
+
+    @hover-background-color: @skin-fc-bg-color-gray,
+    @hover-border-color: @skin-fc-text-color-gray-light,
+    @hover-text-color: @skin-fc-text-color-gray-dark,
+
+    @active-background-color: @skin-fc-bg-color-white,
+    @active-border-color: @skin-fc-bg-color-blue,
+    @active-text-color: @skin-fc-text-color-gray-dark,
+    @active-font-icon-color: @skin-fc-text-color-blue
+) {
+    .set-select-colors(@background-color, @border-color, @text-color);
+    .set-select-icon(@font-icon-color);
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    width: auto;
+    height: 28px;
+    line-height: 28px;
+    padding: 0 26px 0 @padding-left;
+    border-radius: 2px;
+    &:before {
+        content: '.';
+        visibility: hidden;
+        display: inline-block; 
+        width: 0;
+    }
+    &:hover {
+        .set-select-shadow;
+        .set-select-colors(
+            @hover-background-color,
+            @hover-border-color,
+            @hover-text-color
+        );
+    }
+
+    &:active,
+    &:focus {
+        .set-select-active;
+    }
+
+    &-active {
+        .set-select-active;
+    }
+
+    &-disabled,
+    &-read-only {
+        .set-select-disable;
+
+        &:hover,
+        &:focus {
+            #skin-fc-mixin > .box-shadow(none);
+            .set-select-disable;
+        }
+    }
+}
+
+// 设置select控件点击展开的浮层样式
+.set-select-layer(
+    @background-color: @skin-fc-bg-color-white,
+    @border-color: @skin-fc-text-color-gray-light,
+    @text-color: @skin-fc-text-color-gray-dark) {
+    padding: 4px 0;
+    .set-select-colors(@background-color; @border-color; @text-color);
+    .set-select-shadow;
+}
+
+// 设置select控件浮层中的选项样式
+.set-select-item(
+    @padding-left,
+    @background-color: @skin-fc-bg-color-white,
+    @hover-background-color: @skin-fc-bg-color-hover-blue
+) {
+    line-height: 24px;
+    padding-left: @padding-left;
+    padding-right: 10px;
+    background-color: @skin-fc-bg-color-white;
+    border: none;
+
+    &-disabled {
+        color: @skin-fc-text-color-disabled;
+        cursor: not-allowed !important;
+    }
+
+    &:hover {
+        background-color: @hover-background-color;
+    }
+
+    &-selected {
+        background-color: @hover-background-color;
+        font-weight:bold
+    }
+}
+
+// 普通下拉菜单
+.skin-ui-fc-select {
+    .set-select(10px);
+}
+
+.skin-ui-fc-select-active {
+    .set-select-active;
+}
+
+.skin-ui-fc-select-layer {
+    .set-select-layer();
+}
+
+.skin-ui-fc-select-item {
+    .set-select-item(10px);
+}
+
+// 表格行内修改下拉菜单
+.skin-ui-fc-inline-select {
+    .set-select(5px);
+}
+
+.skin-ui-fc-inline-select-layer {
+    .set-select-layer;
+}
+
+.skin-ui-fc-inline-select-item {
+    .set-select-item(5px);
+}
+// 分组样式
+.skin-ui-fc-select-item-group {
+    padding-bottom: 4px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid @skin-fc-border-color-gray-fade;
+}
+
+// select的其他高度，附加在容器上实现其他高度
+.ui-fc-select-height28 {
+    height: 26px;
+    line-height: 26px;
+
+    &:after {
+        top: 5px;
+    }
+}
+
+.ui-fc-select-height26 {
+    height: 24px;
+    line-height: 24px;
+
+    &:after {
+        top: 4px;
+    }
+}
+// 全选
+.set-allselector() {
+    padding: 3px 20px 3px 5px;
+    line-height: 20px;
+    height: 16px;
+    width: 18px;
+    &:after {
+        top: 3px;
+    }
+}
+.@{skin-fc-prefix}-allselector {
+    .set-select(0);
+    .set-allselector();
+    &:hover,
+    &:active,
+    &:focus,
+    &-active,
+    &-active:hover,
+    &-active:active,
+    &-active:focus {
+        .set-select-active();
+        .set-allselector();
+    }
+}
+.@{skin-fc-prefix}-allselector-layer {
+    .set-select-layer();
+    .@{skin-fc-prefix}-allselector-item {
+        .set-select-item(10px);
+    }
+}
+
+/* select的label样式 */
+.@{skin-fc-prefix}-select-label {
+    margin-right: 10px;
+}
+
+/* 下拉button */
+.@{skin-fc-prefix}-droplayerbutton {
+    .set-select(10px);
+    &-active,
+    &-active:hover,
+    &-active:active,
+    &-active:focus {
+        .set-select-active();
+    }
+}
+
+/** 验证 */
+.@{skin-fc-prefix}-select-validity-invalid {
+    border: 1px solid @skin-fc-invalid-border-color;
+}

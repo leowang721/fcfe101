@@ -1,0 +1,31 @@
+<!-- target: entry-demo-code-steps -->
+<h2>Coding Steps</h2>
+<div class="code-steps">
+    <ol>
+    <!-- for: ${steps} as ${eachStep} -->
+        <li>${eachStep|raw}</li>
+    <!-- /for -->
+    </ol>
+</div>
+
+<!-- target: entry-demo-code-detail -->
+<h2>Detail</h2>
+<div class="code-detail">
+    <div class="code-structure">
+        <!-- block: detail -->
+        <h3>Code Detail</h3>
+        <div class="code-structure-detail">
+            <div data-ui="type:Tree; id:code-structure-detail-tree;"></div>
+        </div>
+        <!-- /block -->
+        <!-- block: usage -->
+        <h3>Code Usage</h3>
+        <div class="code-structure-usage">
+            <div data-ui="type:Tree; id:code-structure-usage-tree;"></div>
+        </div>
+        <!-- /block -->
+    </div>
+    <div class="code-review">
+        <fc-code-viewer></fc-code-viewer>
+    </div>
+</div>

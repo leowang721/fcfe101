@@ -1,0 +1,44 @@
+/**
+ * ESUI (Enterprise Simple UI)
+ * Copyright 2013 Baidu Inc. All rights reserved.
+ * 
+ * @file 弹窗消息样式
+ * @author Feixiang Yuan(yuanfeixiang@baidu.com)
+ * @date 2014-12-28
+ */
+.ui-msgpopup {
+    position: fixed;
+    background: @skin-fc-bg-color-white;
+    overflow: hidden;
+    z-index: 10;
+    border: 1px solid @skin-fc-shadow-color;
+    border-bottom: none;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    &-content {
+        padding: 20px;
+        .ui-msgpopup-head {
+            #skin-fc-mixin > .clearfix();
+            .ui-msgpopup-title {
+                font-weight: bold;
+                float: left;
+                line-height: 16px;
+            }
+            .ui-msgpopup-close {
+                width: 16px;
+                height: 16px;
+                font-size: 16px;
+                float: right;
+                color: @skin-fc-text-color-gray;
+                cursor: pointer;
+                &:before {
+                    #skin-fc-mixin > .use-font-icon(@font-icon-times);
+                }
+            }
+        }
+        .ui-msgpopup-body {
+            margin-top: 6px;
+            line-height: 18px;
+        }
+    }
+}

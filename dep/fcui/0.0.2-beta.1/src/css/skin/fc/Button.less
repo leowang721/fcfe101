@@ -1,0 +1,110 @@
+/**
+ * @file ESUI.Button凤巢定制版皮肤
+ * @author MacroX(xingda@baidu.com)
+ */
+
+.set-button-shadow(@shadow-color: @skin-fc-shadow-color) {
+    #skin-fc-mixin > .box-shadow(0px 1px 3px @shadow-color);
+}
+
+.set-button-colors(@background-color; @border-color; @text-color) {
+    background: @background-color;
+    border-color: @border-color;
+    color: @text-color;
+}
+
+.set-button(
+    @background-color: @skin-fc-bg-color-gray;
+    @border-color: @skin-fc-shadow-color;
+    @text-color: @skin-fc-text-color-gray-dark;
+    @hover-background-color: @skin-fc-bg-color-gray;
+    @hover-border-color: @skin-fc-text-color-gray-light;
+    @hover-text-color: @skin-fc-text-color-gray-dark;
+    @active-background-color: @skin-fc-bg-color-white;
+    @active-border-color: @skin-fc-bg-color-blue;
+    @active-text-color: @skin-fc-text-color-gray-dark;
+    @disabled-background-color: @skin-fc-bg-color-gray;
+    @disabled-border-color: @skin-fc-text-color-gray-light;
+    @disabled-text-color: @skin-fc-text-color-disabled;
+) {
+    .set-button-colors(@background-color; @border-color; @text-color);
+    height: @skin-fc-button-height;
+    line-height: @skin-fc-button-height;
+
+    &:hover {
+        .set-button-shadow;
+        .set-button-colors(
+            @hover-background-color;
+            @hover-border-color;
+            @hover-text-color
+        );
+    }
+
+    &:active {
+        .set-button-shadow;
+        .set-button-colors(
+            @active-background-color;
+            @active-border-color;
+            @active-text-color
+        );
+    }
+
+    &-disabled {
+        #skin-fc-mixin > .box-shadow(none) !important;
+        .set-button-colors(
+            @disabled-background-color;
+            @disabled-border-color;
+            @disabled-text-color
+        ) !important;
+        cursor: not-allowed !important;
+    }
+}
+
+.skin-ui-fc-button {
+    .set-button;
+}
+
+.skin-ui-fc-distinct-button {
+    .set-button(
+        @text-color: @skin-fc-text-color-blue-dark;
+        @active-text-color: @skin-fc-text-color-blue-dark;
+    );
+}
+
+.skin-ui-fc-important-button {
+    .set-button(
+        @background-color: @skin-fc-bg-color-blue-light;
+        @border-color: @skin-fc-bg-color-blue-light;
+        @text-color: @skin-fc-bg-color-white;
+        @hover-background-color: @skin-fc-bg-color-blue;
+        @hover-border-color: @skin-fc-bg-color-blue;
+        @hover-text-color: @skin-fc-bg-color-white;
+        @active-background-color: @skin-fc-bg-color-blue;
+        @active-border-color: @skin-fc-bg-color-blue;
+        @active-text-color: @skin-fc-bg-color-white;
+    );
+}
+
+// button的其他高度，附加在容器上实现其他高度
+.ui-fc-button-height28 {
+    height: 26px;
+    line-height: 26px;
+}
+
+.ui-fc-button-height26 {
+    height: 24px;
+    line-height: 24px;
+}
+
+// 带icon的button，附加在button容器上
+// 需要用i元素包装icon
+.ui-fc-button-with-icon {
+    padding-left: 6px;
+    i {
+        display: inline-block;
+        margin-right: 3px;
+        vertical-align: top;
+        position: relative;
+        top: 9px;
+    }
+}

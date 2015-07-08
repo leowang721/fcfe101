@@ -1,0 +1,64 @@
+/**
+ * @file ESUI.Dialog 弹框的皮肤
+ * @author Lingling Yan(yanlingling@baidu.com)
+ */
+
+@skin-fc-dialog-max-height: 580px;
+
+.@{skin-fc-prefix}-dialog,
+.skin-confirm-dialog,
+.skin-alert-dialog {
+    border: 0px;
+    border-radius: 0px;
+    &-head {
+        height: auto;
+        background-image: none;
+        .ui-dialog-title {
+            padding-left: 20px;
+            font-size: 14px;
+            background: @skin-fc-bg-color-title-blue;
+            line-height: 40px;
+        }
+        .ui-dialog-close-icon {
+            background: none;
+            right: 20px;
+            top: 9px;
+            &:before {
+                #skin-fc-mixin > .use-font-icon(@font-icon-times);
+                #skin-fc-mixin > .opacity(0.5);
+                color: @skin-fc-bg-color-white;
+                font-size: 22px;
+            }
+            &:hover{
+                &:before {
+                    #skin-fc-mixin > .opacity(1);
+                }
+            }
+        }
+    }
+    &-foot-panel {
+        margin: 0;
+        padding: 20px;
+        .ui-dialog-foot {
+            float: left;
+            .ui-button {
+                height: @skin-fc-button-height;
+                line-height: @skin-fc-button-height;
+                font-weight: 400;
+                margin-left: 0;
+                margin-right: 10px;
+            }
+            .skin-spring-button:extend(.skin-ui-fc-important-button all) {}
+        }
+    }
+}
+
+// fix 高度的dialog。因为一些dialog会pop出比自己大的浮层，如果将fix height写在皮肤
+// 里会影响很大，暂时用特殊的class过渡。
+.ui-fc-dialog-fix-height {
+    .@{skin-fc-prefix}-dialog-body-panel {
+        max-height: @skin-fc-dialog-max-height;
+        overflow-x: visible;
+        overflow-y: auto;
+    }
+}

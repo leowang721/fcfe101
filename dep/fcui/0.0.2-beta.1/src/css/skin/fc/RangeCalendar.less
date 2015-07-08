@@ -1,0 +1,340 @@
+/**
+ * @file ESUI.RangeCalendar 凤巢定制版皮肤
+ * @author Wang Yi(wangyi25@baidu.com)
+ * @date Fri Jul 04 2014
+ */
+
+ /**
+ * ESUI (Enterprise Simple UI)
+ * Copyright 2013 Baidu Inc. All rights reserved.
+ *
+ * @file 区间日历样式
+ * @author dbear
+ */
+@import "../../esui/mixin.less";
+@import "../../esui/variable.less";
+.@{ui-class-prefix}-fcrangecalendar {
+    border:1px solid #a9adb6;/*border:1px solid #dde0e9;*/
+    width:235px;
+    height: 23px;
+    line-height: 23px;
+    padding-left: 8px;;
+    font-size:12px;
+    cursor:pointer;
+    background-color: white;
+    .linear-gradient-background (top, #ffffff, #f6f6f6);
+    .border-radius (3px, 3px, 3px, 3px);
+    .user-select();
+}
+
+.@{ui-class-prefix}-fcrangecalendar-text {
+    padding-left:3px;
+    float:left;
+}
+
+.@{ui-class-prefix}-fcrangecalendar:hover,
+.@{ui-class-prefix}-fcrangecalendar:active {
+    border-color:#a9adb6;
+}
+
+.@{ui-class-prefix}-fcrangecalendar-arrow {
+    float: right;
+    height: 16px;
+    margin-top: 3px;
+    margin-right: 5px;
+    width: 16px;
+    .linear-gradient-background-with-image (
+        top, #ffffff, #f6f6f6, "../img/esui-combo-arrow.png", left, -9px, #f3f3f3);
+}
+
+.@{ui-class-prefix}-fcrangecalendar-layer {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-color: #394459 #A8ADB6 #A8ADB6;
+    border-image: none;
+    border-right: 1px solid #A8ADB6;
+    border-style: solid;
+    border-width: 2px 1px 1px;
+    padding: 8px;
+    width: 430px;
+
+    .@{ui-class-prefix}-fcrangecalendar-shortcut {
+        font-size: 12px;
+        height: 20px;
+        line-height: 20px;
+        padding-right: 10px;
+    }
+
+    .@{ui-class-prefix}-fcrangecalendar-shortcut-item {
+        color: #3377AA;
+        .interactive-cursor ();
+        text-decoration: underline;
+        border-left: 1px solid #3377AA;
+        margin-left: 5px;
+        padding-left: 5px;
+
+        &.@{ui-class-prefix}-fcrangecalendar-shortcut-item-first {
+            border-left: none;
+            margin-left: 0;
+            padding-left: 0;
+        }
+    }
+
+    .@{ui-class-prefix}-fcrangecalendar-shortcut-item-selected {
+        color: #666666;
+        cursor: default;
+        text-decoration: none;
+    }
+
+    .@{ui-class-prefix}-fcrangecalendar-shortcut-item-disabled {
+        color: #999999;
+        cursor: default;
+        text-decoration: none;
+    }
+
+    .@{ui-class-prefix}-fcrangecalendar-shortcut-disabled {
+        .@{ui-class-prefix}-fcrangecalendar-shortcut-item {
+            color: #999999;
+            cursor: default;
+            text-decoration: none;
+        }
+    }
+
+
+    .@{ui-class-prefix}-fcrangecalendar-begin,
+    .@{ui-class-prefix}-fcrangecalendar-end {
+        float: left;
+        width: 210px;
+    }
+
+    .@{ui-class-prefix}-fcrangecalendar-begin {
+        margin-right: 10px;
+    }
+
+    .@{ui-class-prefix}-fcrangecalendar-label {
+        font-size: 12px;
+        height: 18px;
+        padding-top: 7px;
+        overflow: hidden;
+        zoom: 1;
+        h3 {
+            float: left;
+            font-size: 12px;
+            line-height: 18px;
+            margin: 0;
+        }
+        .@{ui-class-prefix}-checkbox {
+            float: right;
+            input {
+                vertical-align: text-bottom;
+                *margin-bottom: -3px;
+            }
+            line-height: 18px;
+        }
+    }
+
+    .@{ui-class-prefix}-fcrangecalendar-foot {
+        clear: both;
+        padding-top: 8px;
+        .@{ui-class-prefix}-button {
+            margin-right: 5px;
+        }
+    }
+}
+
+.@{ui-class-prefix}-fcrangecalendar-layer-hidden {
+    display: none;
+}
+
+.@{ui-class-prefix}-fcrangecalendar-disabled,
+.@{ui-class-prefix}-fcrangecalendar-read-only {
+    color: #999;
+    border-color: #D8D8D8;
+}
+
+/** 验证 */
+.@{ui-class-prefix}-fcrangecalendar-validity-invalid {
+    border: 1px solid red;
+}
+.@{ui-class-prefix}-fcrangecalendar-validity-label {
+    display:block;
+    margin-top: 5px;
+}
+.@{ui-class-prefix}-fcrangecalendar-validity-label-invalid {
+    .background(url(../img/esui-icon-alert.png), no-repeat, 15px, center, #FEDBDC);
+    border: 1px solid #F0CCCC;
+    color: #dd6767;
+    padding-left: 50px;
+}
+
+
+
+
+@rangecalendar-border-radius: 2px;
+
+.set-rangecalendar-shadow(@shadow-color: @skin-fc-shadow-color) {
+    #skin-fc-mixin > .box-shadow(0 1px 3px @shadow-color);
+}
+
+.set-rangecalendar-shortcut-item(
+    @left-margin: 10px,
+    @left-padding: 10px,
+    @text-color: @skin-fc-text-color-gray
+) {
+    margin-left: @left-margin;
+    padding-left: @left-padding;
+    color: @text-color;
+}
+
+.@{ui-class-prefix}-fcrangecalendar,
+.@{skin-class-prefix}-@{ui-class-prefix}-fc-rangecalendar {
+    #skin-fc-mixin > .border-radius(@rangecalendar-border-radius);
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    border-color: @skin-fc-shadow-color;
+    background: @skin-fc-bg-color-gray;
+    color: @skin-fc-text-color-gray-dark;
+
+    &:hover {
+        .set-rangecalendar-shadow();
+        border-color: @skin-fc-text-color-gray-light;
+    }
+
+    &-text {
+        padding: 0;
+        font-weight: normal;
+    }
+
+    &-arrow {
+        width: auto;
+        height: auto;
+        margin: 0;
+        background: none;
+
+        &:before {
+            #skin-fc-mixin > .use-font-icon(@font-icon-caret-down);
+            position: relative;
+            top: 3px;
+            left: 5px;
+        }
+    }
+
+    &-active {
+        background: @skin-fc-bg-color-white;
+
+        &,
+        &:hover {
+            border-color: @skin-fc-text-color-blue;
+
+            .@{ui-class-prefix}-fcrangecalendar-arrow:before {
+                color: @skin-fc-text-color-blue;
+            }
+        }
+    }
+
+    &-disabled,
+    &-read-only {
+        &,
+        &:hover {
+            #skin-fc-mixin > .box-shadow(none);
+            border-color: @skin-fc-shadow-color;
+            color: @skin-fc-text-color-disabled;
+            cursor: default;
+
+            .@{ui-class-prefix}-fcrangecalendar-arrow:before {
+                color: @skin-fc-shadow-color;
+            }
+        }
+    }
+
+    &-layer {
+        #skin-fc-mixin > .border-radius(@rangecalendar-border-radius);
+        .set-rangecalendar-shadow();
+        padding: 10px;
+        border: 1px solid @skin-fc-text-color-gray-light;
+
+        .skin-layerClose-button {
+            display: none;
+            background: none;
+
+            &:active {
+                background: none;
+            }
+        }
+    }
+
+    &-layer &-shortcut {
+        height: 12px;
+        line-height: 12px;
+
+        &-item {
+            .set-rangecalendar-shortcut-item();
+            border-color: @skin-fc-bg-color-gray-dark;
+            text-decoration: none;
+
+            &-first {
+                .set-rangecalendar-shortcut-item(
+                    @left-margin: 0,
+                    @left-padding: 0
+                );
+            }
+
+            &-selected {
+                .set-rangecalendar-shortcut-item(
+                    @text-color: @skin-fc-text-color-gray-dark
+                );
+                font-weight: bold;
+            }
+        }
+    }
+
+    &-layer &-label {
+        padding-top: 20px;
+        color: @skin-fc-text-color-gray-dark;
+        font-weight: bold;
+    }
+
+    &-layer &-foot {
+        padding-top: 10px;
+
+        div.@{ui-class-prefix}-button {
+            width: 48px;
+
+            &:nth-child(1) {
+                .set-button(
+                    @background-color: @skin-fc-bg-color-blue-light;
+                    @border-color: @skin-fc-bg-color-blue-light;
+                    @text-color: @skin-fc-bg-color-white;
+                    @hover-background-color: @skin-fc-bg-color-blue;
+                    @hover-border-color: @skin-fc-bg-color-blue;
+                    @hover-text-color: @skin-fc-bg-color-white;
+                    @active-background-color: @skin-fc-bg-color-blue;
+                    @active-border-color: @skin-fc-bg-color-blue;
+                    @active-text-color: @skin-fc-bg-color-white;
+                );
+            }
+
+            &:nth-child(2) {
+                color: @skin-fc-text-color-blue-dark;
+            }
+        }
+    }
+
+    /** 验证 */
+    &-warning-message {
+        display: inline-block;
+        color: @skin-fc-invalid-color;
+        font-size: 12px;
+        line-height: 32px;
+    }
+
+    &-validity-invalid {
+        border: 1px solid @skin-fc-invalid-border-color;
+    }
+    
+    &-validity-label-invalid {
+        background: none;
+        border: none;
+        color: @skin-fc-invalid-color;
+    }
+}

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Tip - FCUI Demo</title>
+        <script src="./esl.js"></script>
+        <script src="./jquery.min.js"></script>
+        <script src="../../dep/esui/3.1.0-beta.4/src/customShim.js"></script>
+        <link rel="stylesheet" href="./demo.css" />
+        <link rel="stylesheet" href="../../src/css/main.css" />
+        <link rel="stylesheet" href="../../dep/fc-icon/0.0.4/src/css/fc-icon.css"/>
+        <script>
+            require.config({
+                'baseUrl': '../../src',
+                'paths': {},
+                'packages': [
+                    {
+                        'name': 'mini-event',
+                        'location': '../dep/mini-event/1.0.2/src',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'underscore',
+                        'location': '../dep/underscore/1.6.0/src',
+                        'main': 'underscore'
+                    },
+                    {
+                        'name': 'moment',
+                        'location': '../dep/moment/2.7.0/src',
+                        'main': 'moment'
+                    },
+                    {
+                        'name': 'etpl',
+                        'location': '../dep/etpl/3.0.0/src',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'esui',
+                        'location': '../dep/esui/3.1.0-beta.4/src',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'fcui',
+                        'location': './',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'ef',
+                        'location': '../dep/ef/3.1.0-beta.2/src',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'eoo',
+                        'location': '../dep/eoo/0.1.1/src',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'er',
+                        'location': '../dep/er/3.1.0-beta.5/src',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'ub-ria',
+                        'location': '../dep/ub-ria/1.0.0-alpha.7/src',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'fc-core',
+                        'location': '../dep/fc-core/0.0.1-alpha.7/src',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'promise',
+                        'location': '../dep/promise/1.0.0/src',
+                        'main': 'main'
+                    },
+                    {
+                        'name': 'fc-icon',
+                        'location': '../dep/fc-icon/0.0.4/src',
+                        'main': 'index'
+                    }
+                ]
+            });
+        </script>
+    </head>
+    <body>
+        <header>Tip</header>
+        <div class="container" style="margin-left:100px">
+            <div data-ui="type:Tip;id:tip;title:写这里优先级高;content:我是内容;arrow:1" title="也可以写在这里">content也可以写在这里</div>
+            <esui-tip data-ui="type:Tip;id:tip;title:写这里优先级高;content:我是内容;arrow:1" title="也可以写在这里"></esui-tip>
+            <esui-tip data-ui="type:Tip;id:tip;iconType:!;title:写这里优先级高;content:我是内容;arrow:1" title="也可以写在这里"></esui-tip>
+            <esui-tip data-ui="type:Tip;id:tip;title:写这里优先级高;content:我是内容;arrow:1" title="也可以写在这里" data-ui-icon-type="i"></esui-tip>
+
+            <br>
+            <label id="tip-layer-label">
+                一行字也可以绑定提示
+            </label>
+            <br>
+            <br>
+            <br>
+            <br>
+            <Button data-ui-id="control-tip" data-ui-type="Button">
+                可以帮在控件上
+            </Button>
+            <br>
+            <br>
+            <Button data-ui-id="control-tip-2" data-ui-type="Button">
+                我跟楼上的共享一个tip
+            </Button>
+            <br>
+            <br>
+            <Button data-ui-id="control-tip-3" data-ui-type="Button">
+                绕着我
+            </Button>
+            <Button data-ui-id="control-tip-4" data-ui-type="Button">
+                绕着我
+            </Button>
+            <Button data-ui-id="control-tip-5" data-ui-type="Button">
+                绕着我
+            </Button>
+            <Button data-ui-id="control-tip-6" data-ui-type="Button">
+                绕着我
+            </Button>
+            <Button data-ui-id="control-tip-7" data-ui-type="Button">
+                绕着我
+            </Button>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+        <script>
+        require(
+            [
+                'fcui',
+                'fcui/FcTip',
+                'fcui/FcTipLayer',
+                'fcui/FcLabel',
+                'fcui/lib',
+                'fcui/extension/FcUiSkin',
+                'fc-core/Promise'
+            ],
+            function (ui, Tip, TipLayer, label, lib, skin, p) {
+                var controls = ui.init();
+                var tip = controls[0];
+
+                var onceNotice = TipLayer.onceNotice({
+                    content: '你知道了吗知道了吗知道了吗？',
+                    targetDOM: 'tip-layer-label'
+                });
+
+                var tipLayer = ui.create('FcTipLayer', {
+                    title: '最普通的提示',
+                    content: '随便提示一下随便提示一下随便提示一下'
+                });
+                tipLayer.appendTo(document.body)
+                tipLayer.render();
+                tipLayer.attachTo({
+                    targetControl: 'control-tip',
+                    showMode: 'over',
+                    delayTime: 800,
+                    positionOpt: lib.DockPosition.BOTTOM_TOP_LEFT_RIGHT
+                });
+
+                tipLayer.attachTo({
+                    targetControl: 'control-tip-2',
+                    showMode: 'click',
+                    delayTime: 300,
+                    positionOpt: lib.DockPosition.BOTTOM_TOP_LEFT_RIGHT
+                });
+
+                tipLayer.attachTo({
+                    targetControl: 'control-tip-3',
+                    showMode: 'click',
+                    delayTime: 300,
+                    positionOpt: 3
+                });
+
+                tipLayer.attachTo({
+                    targetControl: 'control-tip-4',
+                    showMode: 'click',
+                    delayTime: 300,
+                    positionOpt: 5
+                });
+
+                tipLayer.attachTo({
+                    targetControl: 'control-tip-5',
+                    showMode: 'click',
+                    delayTime: 300,
+                    positionOpt: 8
+                });
+
+                tipLayer.attachTo({
+                    targetControl: 'control-tip-6',
+                    showMode: 'click',
+                    delayTime: 300,
+                    positionOpt: 10
+                });
+
+                tipLayer.attachTo({
+                    targetControl: 'control-tip-7',
+                    showMode: 'click',
+                    delayTime: 300,
+                    positionOpt: 12
+                });
+
+                var delayTip = ui.create('FcTip', {
+                    title: '延迟提示',
+                    content: function () {
+                        return new p(function (resolve) {
+                            setTimeout(function () {
+                                resolve('姗姗来迟');
+                            }, 2000);
+                        });
+                    },
+                    showMode: 'over',
+                    delayTime: 800
+                });
+                delayTip.appendTo(document.querySelector('.container'));
+            }
+        )
+        </script>
+    </body>
+</html>

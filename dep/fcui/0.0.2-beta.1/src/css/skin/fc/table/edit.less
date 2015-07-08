@@ -1,0 +1,91 @@
+/**
+ * FCUI Table 皮肤，表格编辑
+ * @author Han Bing Feng (hanbingfeng@baidu.com)
+ */
+.ui-fctable {
+    .ui-fctable-tbody {
+        .ui-fctable-row.ui-fctable-row:hover {
+            .ui-fctable-cell-editable {
+                padding: 0 1px;
+                .ui-fctable-cell-text {
+                    line-height: 16px;
+                    background: @skin-fc-bg-color-white;
+                    #skin-fc-mixin > .border-radius(2px);
+                    margin: 8px 1px 7px;
+                    padding: 3px 2px;
+                    border: 1px solid @skin-fc-shadow-color;
+                    position: relative;
+
+                    .ui-fctable-cell-edit-entry {
+                        &:after {
+                            color: @skin-fc-text-color-blue;
+                            #skin-fc-mixin > .use-font-icon(@font-icon-edit);
+                            background: @skin-fc-bg-color-white;
+                        }
+                        cursor: pointer;
+                        position: absolute;
+                        background: none;
+                    }
+                }
+            }
+
+            .ui-fctable-cell-editable {
+                .ui-fctable-cell-edit-entry {
+                    top: 3px;
+                    right: 4px;
+                }
+            }
+            .ui-fctable-cell-align-right.ui-fctable-cell-editable {
+                .ui-fctable-cell-edit-entry {
+                    left: 4px;
+                    right: auto;
+                }
+            }
+        }
+    }
+
+    &-inline-editor {
+        position: absolute;
+        #skin-fc-mixin > .border-radius(2px);
+        #skin-fc-mixin > .box-shadow(0 1px 3px @skin-fc-text-color-gray-light);
+        background: @skin-fc-bg-color-gray;
+        border: 1px solid @skin-fc-text-color-gray-light;
+        padding: 10px;
+
+        .ui-fctable-edit-control-wrapper {
+            .fl();
+        }
+
+        .ui-fctable-edit-buttons-wrapper {
+            .fl();
+
+            .ui-button {
+                margin-left: 10px;
+                height: 24px;
+                line-height: 24px;
+            }
+        }
+
+        .ui-fctable-edit-validities-wrapper {
+            clear: both;
+            padding-top: 5px;
+        }
+
+        &-text {
+            .ui-fctextbox {
+                input {
+                    height: 20px;
+                    line-height: 20px;
+                    padding: 2px 4px;
+                    width: 145px;
+                    border-radius: 2px;
+                    border: 1px solid @skin-fc-shadow-color;
+
+                    &:hover {
+                        border: 1px solid @skin-fc-text-color-blue;                
+                    }
+                }
+            }
+        }
+    }
+}

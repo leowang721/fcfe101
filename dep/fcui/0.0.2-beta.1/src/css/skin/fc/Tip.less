@@ -1,0 +1,178 @@
+/**
+ * @file ESUI.Tip凤巢定制版皮肤
+ * @author Chong Chen (chenchong02@baidu.com)
+ */
+
+/**
+  * ESUI (Enterprise Simple UI)
+  * Copyright 2013 Baidu Inc. All rights reserved.
+  *
+  * @file 提示
+  * @author dbear
+  */
+ 
+@import "../../esui/mixin.less";
+@import "../../esui/variable.less";
+.@{ui-class-prefix}-fctip-layer {
+    background: #FFF3D9;
+    border: 1px solid #D9CBA8;
+    padding: 10px;
+    margin-left: -5px;
+    margin-top: 13px;
+    z-index: @layer-z-index;
+}
+
+.@{ui-class-prefix}-fctip-title,
+.@{ui-class-prefix}-fctip-body {
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+}
+.@{ui-class-prefix}-fctip-title {
+    margin: 0 0 0.5em;
+}
+
+.@{ui-class-prefix}-fctip-body {
+    margin-bottom: 5px;
+}
+
+.@{ui-class-prefix}-fctip {
+    font-size: 1px;
+}
+
+.@{ui-class-prefix}-fctip-arrow {
+    display: none;
+    position: absolute;
+    font-size: 1px;
+}
+
+.@{ui-class-prefix}-fctip-arrow-tl .@{ui-class-prefix}-fctip-arrow-1 {
+    display: block;
+    .background (url(../img/esui_transparent.gif), no-repeat, -24px, -12px);
+    width: 12px;
+    height: 13px;
+    top: -13px;
+    left: 12px;
+}
+.@{ui-class-prefix}-fctip-arrow-tr {
+    display: block;
+    .background (url(../img/esui_transparent.gif), no-repeat, -36px, -12px);
+    width: 12px;
+    height: 13px;
+    top: -13px;
+    right: 12px;
+}
+.@{ui-class-prefix}-fctip-arrow-bl {
+    display: block;
+    .background (url(../img/esui_transparent.gif), no-repeat, -12px, -12px);
+    width: 12px;
+    height: 13px;
+    bottom: -13px;
+    left: 12px;
+}
+.@{ui-class-prefix}-fctip-arrow-br {
+    display: block;
+    .background (url(../img/esui_transparent.gif), no-repeat, 0px, -12px);
+    width: 12px;
+    height: 13px;
+    bottom: -13px;
+    right: 12px;
+}
+
+.@{ui-class-prefix}-fctip-arrow-lt {
+    display: block;
+    .background (url(../img/esui_transparent.gif), no-repeat, -26px, 0px);
+    width: 13px;
+    height: 12px;
+    top: 7px;
+    left: -13px;
+}
+.@{ui-class-prefix}-fctip-arrow-lb {
+    display: block;
+    .background (url(../img/esui_transparent.gif), no-repeat, -39px, 0);
+    width: 13px;
+    height: 12px;
+    bottom: 7px;
+    left: -13px;
+}
+.@{ui-class-prefix}-fctip-arrow-rt {
+    display: block;
+    .background (url(../img/esui_transparent.gif));
+    width: 13px;
+    height: 12px;
+    top: 7px;
+    right: -13px;
+}
+.@{ui-class-prefix}-fctip-arrow-rb {
+    display: block;
+    .background (url(../img/esui_transparent.gif), no-repeat, -13px, 0);
+    width: 13px;
+    height: 12px;
+    bottom: 7px;
+    right: -13px;
+}
+
+.@{ui-class-prefix}-fctip {
+    width: 14px;
+    height: 14px;
+    .background (url(../img/esui.png), no-repeat, -101px, -89px);
+    overflow: hidden;
+    .inline-block ();
+    vertical-align: middle;
+}
+
+.@{ui-class-prefix}-fctip-layer-hidden {
+    display: none;
+}
+
+
+
+.set-skin-fc-tip(
+    @font-color: @skin-fc-text-color-gray;
+    @hover-font-color: @skin-fc-bg-color-blue;
+    @active-font-color: @skin-fc-bg-color-blue;
+    @icon: @font-icon-hint-info-s
+) {
+    background: none;
+    background-image: none;
+    padding-bottom: 4px;
+    width: 16px;
+    height: 16px;
+    color: @font-color;
+    &:hover {
+        cursor: default;
+        color: @hover-font-color
+    }
+    &:active {
+        color: @active-font-color
+    }
+    &:before {
+        #skin-fc-mixin > .use-font-icon(@icon);
+    }
+
+    &-click:before {
+        cursor: pointer;
+    }
+}
+.@{ui-class-prefix}-fctip {
+    .set-skin-fc-tip();
+}
+.@{ui-class-prefix}-fctip-warn,
+.@{ui-class-prefix}-warn-fctip {
+    .set-skin-fc-tip(
+        @font-color: @skin-fc-icon-orange-color;
+        @hover-font-color: @skin-fc-icon-orange-color;
+        @active-font-color: @skin-fc-icon-orange-color;
+        @icon: @font-icon-hint-exclamation-s
+    );
+}
+
+.@{ui-class-prefix}-fctip-question,
+.@{ui-class-prefix}-question-fctip {
+    .set-skin-fc-tip(
+        @font-color: @skin-fc-text-color-gray;
+        @hover-font-color: @skin-fc-bg-color-blue;
+        @active-font-color: @skin-fc-bg-color-blue;
+        @icon: @font-icon-hint-question-s
+    );
+}

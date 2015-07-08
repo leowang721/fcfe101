@@ -1,0 +1,39 @@
+.fc-header {
+    background: #225498;
+    padding: 10px 15px 0;
+    position: relative;
+    height: 40px;
+
+    ul {
+        display: inline-block;
+        margin: 0 0 5px 0;
+        padding: 0;
+        position: absolute;
+        left: 200px;
+        bottom: 0;
+    }
+
+    li {
+        display: inline-block;
+        margin: 0 15px;
+    }
+
+    a {
+        color: #cdd9e8;
+        padding: 3px 0;
+        display: block;
+        font-size: 14px;
+
+        &:link, &:visited {
+            color: #cdd9e8;
+            text-decoration: none;
+        }
+        &:hover, &:active {
+            color: #ffffff;
+        }
+        &.active {
+            color: #ffffff;
+            border-bottom: 2px solid #ffffff;
+        }
+    }
+}
